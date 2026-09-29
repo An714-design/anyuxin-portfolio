@@ -97,6 +97,7 @@ footer{padding:30px 0;border-top:1px solid var(--line);font-size:12px;color:var(
     <div class="eyebrow">03 · 识别流程</div><h2>AI 负责识别，用户负责确认。</h2>
     <p class="lead">Renew 不把 OCR 结果直接变成扣费事实。每个字段都保留来源，低置信度信息必须经过用户检查。</p>
     <figure class="fig block"><img src="diagrams/detection-flow.png" alt="从线索到决定的流程图：导入、解析、确认、雷达、风险、行动和验证"><figcaption>识别流程将自动能力限制在建议层，避免错误信息直接进入用户的财务视图</figcaption></figure>
+    <figure class="fig block"><img src="diagrams/information-architecture.png" alt="信息架构图：线索、订阅库、续费雷达、风险和行动五个层级"><figcaption>信息架构把分散的线索收拢为「线索 → 订阅库 → 雷达 → 行动」的单向结构，每一步都有明确的输入和输出</figcaption></figure>
     <div class="flowline block">
       <div class="step"><b>01 导入</b><span>账单、邮件、PDF 或截图</span></div>
       <div class="step"><b>02 解析</b><span>商户、金额、周期、日期</span></div>
@@ -104,6 +105,7 @@ footer{padding:30px 0;border-top:1px solid var(--line);font-size:12px;color:var(
       <div class="step"><b>04 归档</b><span>加入订阅库和模型</span></div>
       <div class="step"><b>05 行动</b><span>保留、暂停、降级或取消</span></div>
     </div>
+    <figure class="fig block"><img src="motion/scan-detect.png" alt="扫描识别动效海报：扫描线在账单截图和解析字段之间移动"><figcaption>扫描识别动效只表达“系统在解析”，不替代用户对低置信度字段的确认</figcaption></figure>
   </div>
 </section>
 
@@ -119,6 +121,7 @@ footer{padding:30px 0;border-top:1px solid var(--line);font-size:12px;color:var(
         <div class="risk low"><span class="tag acid">低风险</span><h3>已处理或暂停</h3><p>不继续打扰，保留来源，并在续费日再次验证。</p></div>
       </div>
     </div>
+    <figure class="fig block"><img src="diagrams/risk-model.png" alt="风险模型图：金额、使用频率和价格变化共同决定高、中、低风险"><figcaption>风险模型用金额、使用频率和价格变化三个维度解释风险等级，帮助用户安排处理顺序</figcaption></figure>
   </div>
 </section>
 

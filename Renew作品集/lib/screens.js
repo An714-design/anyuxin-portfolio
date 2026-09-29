@@ -60,7 +60,6 @@ p{font-size:13px;line-height:1.6;color:rgba(21,21,21,.65)}
 .step.done .step-num{background:${tokens.colors.acid};color:${tokens.colors.ink}}
 .check{width:22px;height:22px;border-radius:7px;border:1px solid ${tokens.colors.lineStrong};display:grid;place-items:center;font-size:12px}.check.on{background:${tokens.colors.acid};border-color:${tokens.colors.acid}}
 .stamp{display:inline-flex;align-items:center;justify-content:center;height:34px;padding:0 12px;border:1px solid ${tokens.colors.signal};color:${tokens.colors.signal};border-radius:6px;font-family:${MONO};font-size:11px;letter-spacing:.08em;transform:rotate(-3deg)}
-.swatch{height:54px;border-radius:12px;border:1px solid ${tokens.colors.line};display:flex;align-items:flex-end;padding:8px;color:${tokens.colors.surface};font-family:${MONO};font-size:9px}.swatch.light{color:${tokens.colors.ink}}
 `;
 
 function shell({ theme = 'paper', body }) {
@@ -101,7 +100,7 @@ const screens = [
     id: '05-renewal-radar',
     label: '续费雷达',
     html: shell({
-      body: `<div class="body"><div class="kicker">Renewal Radar · 模拟数据</div><h2 style="margin-top:8px">未来 7 天<br>将扣 ¥186.00</h2><div class="radar"><div class="radar-ring"></div><div class="radar-ring two"></div><div class="radar-ring three"></div><div class="radar-center"><b>今天</b><span>10.02</span></div><div class="radar-node" style="left:228px;top:44px"></div><div class="radar-label" style="left:242px;top:28px">StreamMax ¥68</div><div class="radar-node yellow" style="left:56px;top:94px"></div><div class="radar-label" style="left:10px;top:72px">CloudBox $12.99</div><div class="radar-node gray" style="left:202px;top:216px"></div><div class="radar-label" style="left:220px;top:218px">Music+ 保留</div></div><div class="card"><div class="row"><div><h3>StreamMax</h3><p>10 月 18 日 · 月付</p></div><b class="mono">¥68.00</b></div><div class="row"><div><h3>CloudBox</h3><p>10 月 20 日 · 年付 · 需检查</p></div><b class="mono">$12.99</b></div></div><p class="source" style="margin-top:12px">节点位置和金额均为作品集模拟数据。</p></div><div class="nav"><div><b>⌂</b>首页</div><div><b>◷</b>日历</div><div><b>▤</b>订阅</div><div><b>↘</b>节省</div></div>`
+      body: `<div class="body"><div class="kicker">Renewal Radar · 模拟数据</div><h2 style="margin-top:8px">未来 7 天<br>将扣 2 笔</h2><div class="radar"><div class="radar-ring"></div><div class="radar-ring two"></div><div class="radar-ring three"></div><div class="radar-center"><b>今天</b><span>10.02</span></div><div class="radar-node" style="left:228px;top:44px"></div><div class="radar-label" style="left:242px;top:28px">StreamMax ¥68</div><div class="radar-node yellow" style="left:56px;top:94px"></div><div class="radar-label" style="left:10px;top:72px">CloudBox $12.99</div><div class="radar-node gray" style="left:202px;top:216px"></div><div class="radar-label" style="left:220px;top:218px">Music+ 保留</div></div><div class="card"><div class="row"><div><h3>StreamMax</h3><p>10 月 05 日 · 月付</p></div><b class="mono">¥68.00</b></div><div class="row"><div><h3>CloudBox</h3><p>10 月 07 日 · 年付 · 需检查</p></div><b class="mono">$12.99</b></div></div><p class="source" style="margin-top:12px">节点位置和金额均为作品集模拟数据。</p></div><div class="nav"><div><b>⌂</b>首页</div><div><b>◷</b>日历</div><div><b>▤</b>订阅</div><div><b>↘</b>节省</div></div>`
     })
   },
   {
@@ -129,7 +128,7 @@ const screens = [
     id: '09-savings-report',
     label: '节省报告',
     html: shell({
-      body: `<div class="body"><div class="kicker">Savings · October</div><h2 style="margin-top:8px">预计节省</h2><div class="amount" style="margin-top:10px">¥816</div><p>来自 3 个已经确认取消的订阅。金额为模拟数据。</p><div class="card" style="margin-top:16px"><div class="row"><div><h3>StreamMax</h3><p>已取消 · 月付</p></div><b class="mono">¥68</b></div><div class="row"><div><h3>CloudBox</h3><p>等待确认 · 年付</p></div><b class="mono">$12.99</b></div><div class="row"><div><h3>FocusKit</h3><p>已取消 · 月付</p></div><b class="mono">¥45</b></div></div><div class="card" style="margin-top:12px;background:rgba(200,244,90,.12)"><div class="row" style="border-bottom:0"><div><h3>下一次验证</h3><p>10 月 20 日再次检查是否扣费。</p></div><span class="chip acid">已安排</span></div></div></div><div class="nav"><div><b>⌂</b>首页</div><div><b>◷</b>日历</div><div><b>▤</b>订阅</div><div><b>↘</b>节省</div></div>`
+      body: `<div class="body"><div class="kicker">Savings · October</div><h2 style="margin-top:8px">预计节省</h2><div class="amount" style="margin-top:10px">¥113</div><p>来自 2 个已经确认取消的订阅，CloudBox 等待确认。金额为模拟数据。</p><div class="card" style="margin-top:16px"><div class="row"><div><h3>StreamMax</h3><p>已取消 · 月付</p></div><b class="mono">¥68</b></div><div class="row"><div><h3>CloudBox</h3><p>等待确认 · 年付</p></div><b class="mono">$12.99</b></div><div class="row"><div><h3>FocusKit</h3><p>已取消 · 月付</p></div><b class="mono">¥45</b></div></div><div class="card" style="margin-top:12px;background:rgba(200,244,90,.12)"><div class="row" style="border-bottom:0"><div><h3>下一次验证</h3><p>10 月 20 日再次检查是否扣费。</p></div><span class="chip acid">已安排</span></div></div></div><div class="nav"><div><b>⌂</b>首页</div><div><b>◷</b>日历</div><div><b>▤</b>订阅</div><div><b>↘</b>节省</div></div>`
     })
   },
   {

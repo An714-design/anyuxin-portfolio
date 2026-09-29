@@ -16,3 +16,10 @@ test('portfolio prioritizes product logic, UI, trust, and visual system', () => 
   assert.match(html, /所有订阅、金额和日期均为模拟数据/);
   assert.doesNotMatch(html, /https?:\/\//);
 });
+
+test('index references all committed diagrams and motion posters', () => {
+  const html = fs.readFileSync(path.join(__dirname, '..', 'index.html'), 'utf8');
+  for (const asset of ['diagrams/information-architecture.png', 'diagrams/risk-model.png', 'motion/scan-detect.png']) {
+    assert.ok(html.includes(asset), `index.html must reference ${asset}`);
+  }
+});
