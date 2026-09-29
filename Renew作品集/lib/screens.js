@@ -55,6 +55,12 @@ p{font-size:13px;line-height:1.6;color:rgba(21,21,21,.65)}
 .day b{font-family:${MONO};font-size:13px}.day i{width:6px;height:6px;border-radius:50%;background:${tokens.colors.signal};margin-top:5px}.day.active{border-color:${tokens.colors.ink};background:${tokens.colors.ink};color:${tokens.colors.surface}}.day.active i{background:${tokens.colors.acid}}
 .price-bars{height:96px;display:flex;align-items:flex-end;gap:10px;margin-top:18px;padding:0 4px}
 .price-bar{flex:1;border-radius:8px 8px 3px 3px;background:rgba(21,21,21,.12);position:relative}.price-bar.on{background:${tokens.colors.ink}}.price-bar span{position:absolute;left:50%;bottom:-22px;transform:translateX(-50%);font-family:${MONO};font-size:9px;color:${tokens.colors.muted}}
+.step{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid ${tokens.colors.line}}.step:last-child{border-bottom:0}
+.step-num{width:28px;height:28px;flex:0 0 auto;border-radius:50%;display:grid;place-items:center;background:${tokens.colors.ink};color:${tokens.colors.surface};font-family:${MONO};font-size:11px}
+.step.done .step-num{background:${tokens.colors.acid};color:${tokens.colors.ink}}
+.check{width:22px;height:22px;border-radius:7px;border:1px solid ${tokens.colors.lineStrong};display:grid;place-items:center;font-size:12px}.check.on{background:${tokens.colors.acid};border-color:${tokens.colors.acid}}
+.stamp{display:inline-flex;align-items:center;justify-content:center;height:34px;padding:0 12px;border:1px solid ${tokens.colors.signal};color:${tokens.colors.signal};border-radius:6px;font-family:${MONO};font-size:11px;letter-spacing:.08em;transform:rotate(-3deg)}
+.swatch{height:54px;border-radius:12px;border:1px solid ${tokens.colors.line};display:flex;align-items:flex-end;padding:8px;color:${tokens.colors.surface};font-family:${MONO};font-size:9px}.swatch.light{color:${tokens.colors.ink}}
 `;
 
 function shell({ theme = 'paper', body }) {
@@ -111,6 +117,28 @@ const screens = [
     html: shell({
       body: `<div class="body"><div class="kicker">Subscription · CloudBox</div><div class="row" style="margin-top:10px;border-bottom:0;padding:0"><div><h2>CloudBox</h2><p>云存储 · 年付</p></div><span class="chip warn">需检查</span></div><div class="card" style="margin-top:16px"><span class="mini">下次续费</span><div class="amount" style="margin-top:6px">$12.99</div><p class="mono">2026-10-20 · 还有 18 天</p><div class="rule"></div><span class="mini">价格变化</span><div class="price-bars"><div class="price-bar" style="height:48%"><span>2023</span></div><div class="price-bar" style="height:58%"><span>2024</span></div><div class="price-bar on" style="height:84%"><span>2025</span></div><div class="price-bar on" style="height:100%"><span>2026</span></div></div></div><div class="card" style="margin-top:16px"><div class="row"><span>最近使用</span><b>62 天前</b></div><div class="row"><span>识别来源</span><b>PDF 账单</b></div><div class="row"><span>当前判断</span><b>建议观察</b></div></div><div class="grid-2" style="margin-top:16px"><div class="btn">取消订阅</div><div class="btn ghost">暂时保留</div></div><p class="source" style="margin-top:12px">使用记录和价格变化均为模拟数据。</p></div><div class="nav"><div><b>⌂</b>首页</div><div><b>◷</b>日历</div><div><b>▤</b>订阅</div><div><b>↘</b>节省</div></div>`
     })
-  }];
+  },
+  {
+    id: '08-cancel-assistant',
+    label: '取消助手',
+    html: shell({
+      body: `<div class="body"><div class="kicker">Cancel Assistant · 4 steps</div><h2 style="margin-top:8px">取消前检查</h2><p style="margin-top:8px">先确认剩余权益、导出内容和取消后的生效时间。</p><div class="card" style="margin-top:16px"><div class="step done"><div class="step-num">✓</div><div><h3>导出内容</h3><p>确认云盘文件已备份。</p></div></div><div class="step done"><div class="step-num">✓</div><div><h3>确认剩余权益</h3><p>取消后仍可使用到 10 月 20 日。</p></div></div><div class="step"><div class="step-num">3</div><div><h3>打开取消入口</h3><p>在账户设置中找到“管理订阅”。</p></div></div><div class="step"><div class="step-num">4</div><div><h3>保存取消凭证</h3><p>截图或记录确认邮件。</p></div></div></div><div class="card" style="margin-top:12px"><div class="mini">客服话术模板</div><p style="margin-top:8px">“你好，我希望取消当前 CloudBox 年付订阅，并确认不会在下个周期自动续费。请提供取消确认编号。”</p></div><div class="btn" style="margin-top:16px">复制话术并开始</div><div class="btn ghost" style="margin-top:10px">我还不想取消</div><div class="stamp" style="margin-top:18px">DEMO CANCEL FLOW</div></div><div class="nav"><div><b>⌂</b>首页</div><div><b>◷</b>日历</div><div><b>▤</b>订阅</div><div><b>↘</b>节省</div></div>`
+    })
+  },
+  {
+    id: '09-savings-report',
+    label: '节省报告',
+    html: shell({
+      body: `<div class="body"><div class="kicker">Savings · October</div><h2 style="margin-top:8px">预计节省</h2><div class="amount" style="margin-top:10px">¥816</div><p>来自 3 个已经确认取消的订阅。金额为模拟数据。</p><div class="card" style="margin-top:16px"><div class="row"><div><h3>StreamMax</h3><p>已取消 · 月付</p></div><b class="mono">¥68</b></div><div class="row"><div><h3>CloudBox</h3><p>等待确认 · 年付</p></div><b class="mono">$12.99</b></div><div class="row"><div><h3>FocusKit</h3><p>已取消 · 月付</p></div><b class="mono">¥45</b></div></div><div class="card" style="margin-top:12px;background:rgba(200,244,90,.12)"><div class="row" style="border-bottom:0"><div><h3>下一次验证</h3><p>10 月 20 日再次检查是否扣费。</p></div><span class="chip acid">已安排</span></div></div></div><div class="nav"><div><b>⌂</b>首页</div><div><b>◷</b>日历</div><div><b>▤</b>订阅</div><div><b>↘</b>节省</div></div>`
+    })
+  },
+  {
+    id: '10-privacy-settings',
+    label: '隐私与设置',
+    html: shell({
+      body: `<div class="body"><div class="kicker">Privacy · Your boundary</div><h2 style="margin-top:8px">不保存完整邮件</h2><p style="margin-top:8px">Renew 只保留识别所需的字段，并显示每一条信息的来源。</p><div class="card" style="margin-top:16px"><div class="row"><div><h3>不接入银行卡密码</h3><p>演示版本不连接任何真实支付账户。</p></div><span class="check on">✓</span></div><div class="row"><div><h3>不保存完整邮件</h3><p>只保留商户、金额、周期和续费日。</p></div><span class="check on">✓</span></div><div class="row"><div><h3>允许删除识别记录</h3><p>单条删除或清除全部演示数据。</p></div><span class="check on">✓</span></div></div><div class="card" style="margin-top:12px"><span class="mini">演示数据声明</span><p style="margin-top:7px">当前所有订阅名称、金额和日期均为作品集模拟数据，不代表真实用户或真实交易。</p></div><div class="grid-2" style="margin-top:16px"><div class="btn">导出数据</div><div class="btn ghost">删除全部</div></div></div><div class="nav"><div><b>⌂</b>首页</div><div><b>◷</b>日历</div><div><b>▤</b>订阅</div><div><b>↘</b>节省</div></div>`
+    })
+  }
+];
 
 module.exports = { screens, shell, SCREEN_CSS };
