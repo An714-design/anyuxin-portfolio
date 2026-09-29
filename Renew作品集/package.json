@@ -1,0 +1,9 @@
+{
+  "name": "renew-subscription-detective-portfolio",
+  "private": true,
+  "scripts": {
+    "render": "node render.js",
+    "test": "node --test",
+    "validate": "node scripts/validate.js"
+  }
+}
