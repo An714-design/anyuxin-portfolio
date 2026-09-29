@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>光合 Lumen · 睡眠陪伴 App — UI/UX 作品集</title>
+<style>
+:root{
+  --paper:#F7F1E8;--paper-2:#EFE2D4;--white:#FFFDF8;--ink:#17151A;--ink-2:#655D58;--ink-3:#95877D;
+  --night:#10162F;--night-2:#202B46;--amber:#D8A15E;--amber-2:#F4D48A;--dusk:#7B6C9D;--moon:#ECE2C6;--sprout:#A8C8A0;
+  --line:rgba(33,30,37,.11);--line-dark:rgba(236,226,198,.14);--r:28px;--ease:cubic-bezier(.22,.61,.36,1)
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+html{scroll-behavior:smooth}body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--paper);color:var(--ink);line-height:1.62;letter-spacing:.002em}
+img{display:block;max-width:100%}a{color:inherit;text-decoration:none}button,input{font:inherit}
+nav{position:sticky;top:0;z-index:80;height:56px;background:rgba(247,241,232,.78);backdrop-filter:saturate(160%) blur(18px);border-bottom:1px solid rgba(33,30,37,.08)}
+nav .in{max-width:1220px;margin:0 auto;height:100%;padding:0 32px;display:flex;align-items:center;justify-content:space-between}
+nav .brand{font-family:"Noto Serif SC","Songti SC",serif;font-size:16px;letter-spacing:.02em}nav .brand b{color:#A96F35;font-weight:600}
+nav .links{display:flex;gap:24px;font-size:12px;color:var(--ink-2)}nav .links a:hover{color:#A96F35}
+.wrap{max-width:1220px;margin:0 auto;padding:0 32px}section{padding:112px 0;position:relative}.tight{padding:92px 0}.dark{background:var(--night);color:var(--moon)}.dark .lead,.dark p{color:rgba(236,226,198,.66)}.alt{background:var(--paper-2)}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#A96F35}.dark .eyebrow{color:var(--amber)}
+h1,h2,h3{font-family:"Noto Serif SC","Songti SC","STSong",serif;font-weight:500}
+h2{font-size:50px;line-height:1.1;letter-spacing:-.045em;margin-top:13px;max-width:850px}h3{font-size:20px;line-height:1.3;letter-spacing:-.02em}
+.lead{font-size:19px;line-height:1.62;color:var(--ink-2);margin-top:18px;max-width:820px}.small{font-size:13px;color:var(--ink-3)}.dark .small{color:rgba(236,226,198,.48)}
+.block{margin-top:48px}.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:22px}.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.card{background:rgba(255,253,248,.72);border:1px solid var(--line);border-radius:var(--r);padding:28px;box-shadow:0 18px 42px -30px rgba(69,46,26,.34)}.dark .card{background:rgba(255,253,248,.055);border-color:var(--line-dark);box-shadow:none}
+.card p{font-size:14px;color:var(--ink-2);margin-top:9px}.dark .card p{color:rgba(236,226,198,.66)}
+.tag{display:inline-flex;align-items:center;height:28px;padding:0 11px;border-radius:99px;background:rgba(216,161,94,.14);color:#905B2E;font-size:11px;font-weight:650;letter-spacing:.04em}.dark .tag{background:rgba(216,161,94,.15);color:#F1C27D}
+.fig{background:var(--white);border-radius:var(--r);border:1px solid var(--line);overflow:hidden;box-shadow:0 28px 60px -36px rgba(69,46,26,.44)}.fig img{width:100%}.fig figcaption{padding:14px 18px;border-top:1px solid var(--line);font-size:12px;color:var(--ink-3);text-align:center}
+.hero{padding:0;overflow:hidden;background:radial-gradient(circle at 70% 18%,rgba(216,161,94,.18),transparent 26%),linear-gradient(180deg,#202B46 0%,#10162F 62%,#080B16 100%);color:var(--moon)}
+.hero .copy{display:grid;grid-template-columns:1.04fr .96fr;gap:55px;align-items:end;padding-top:112px;padding-bottom:38px}
+.hero h1{font-size:106px;line-height:.9;letter-spacing:-.065em}.hero h1 b{display:block;color:var(--amber-2);font-weight:500}.hero .sub{font-size:21px;color:rgba(236,226,198,.72);margin-top:26px;max-width:650px}
+.hero .meta{display:flex;gap:9px;flex-wrap:wrap;margin-top:30px}.hero .meta span{padding:8px 12px;border:1px solid rgba(236,226,198,.13);border-radius:999px;font-size:12px;color:rgba(236,226,198,.72)}
+.hero .portrait{border-radius:32px;overflow:hidden;border:1px solid rgba(236,226,198,.16);box-shadow:0 44px 80px -38px rgba(0,0,0,.65)}.hero .portrait img{width:100%}
+.stage{padding:20px 0 0;background:linear-gradient(180deg,transparent,rgba(8,11,22,.72));border-top:1px solid rgba(236,226,198,.08)}
+.phones{display:flex;align-items:flex-end;justify-content:center;gap:24px;padding:42px 0 0}.phone{width:230px;background:#080B16;border-radius:35px;padding:9px;box-shadow:0 38px 68px -30px rgba(0,0,0,.72)}.phone.mid{width:268px;transform:translateY(-32px)}.phone img{border-radius:27px}
+.note{display:flex;gap:12px;align-items:flex-start}.note .num{font-family:"Noto Serif SC",serif;font-size:27px;color:#A96F35;line-height:1}.dark .note .num{color:var(--amber)}
+.split{display:grid;grid-template-columns:1.02fr .98fr;gap:48px;align-items:start}.quote{font-family:"Noto Serif SC",serif;font-size:38px;line-height:1.35;letter-spacing:-.04em;max-width:820px}
+.pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.pillar{padding:23px 20px;border-radius:22px;background:rgba(255,253,248,.64);border:1px solid var(--line)}.pillar b{display:block;font-family:"Noto Serif SC",serif;font-size:20px;font-weight:500}.pillar span{display:block;font-size:12px;color:var(--ink-2);margin-top:9px}
+.screens{display:grid;grid-template-columns:repeat(3,1fr);gap:42px 30px}.screen-card{display:flex;flex-direction:column;align-items:center}.screen-card .box{width:100%;background:#080B16;border-radius:31px;padding:9px;box-shadow:0 30px 58px -30px rgba(16,22,47,.62)}.screen-card img{border-radius:23px}.screen-card .label{font-size:12px;color:var(--ink-2);margin-top:14px;text-align:center}.screen-card .label b{color:var(--ink);font-weight:650}
+.swatches{display:grid;grid-template-columns:repeat(7,1fr);gap:12px}.swatch .c{height:112px;border-radius:20px;border:1px solid rgba(33,30,37,.07)}.swatch b{display:block;font-size:13px;margin-top:11px}.swatch span{display:block;font-size:11px;color:var(--ink-3)}
+.type{display:grid;grid-template-columns:190px 1fr;gap:0;margin-top:30px;background:var(--white);border:1px solid var(--line);border-radius:24px;overflow:hidden}.type .label{padding:18px 20px;border-bottom:1px solid var(--line);font-size:12px;color:var(--ink-2)}.type .demo{padding:18px 24px;border-bottom:1px solid var(--line)}.type .serif{font-family:"Noto Serif SC",serif;font-size:28px}.type .body{font-size:16px;color:var(--ink-2)}
+.storyboard{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.act{padding:18px;border-radius:20px;background:rgba(255,253,248,.06);border:1px solid var(--line-dark)}.act b{display:block;font-family:"Noto Serif SC",serif;font-size:19px;font-weight:500}.act span{display:block;font-size:12px;color:rgba(236,226,198,.55);margin-top:9px}.act em{display:block;font-size:11px;color:var(--amber);font-style:normal;margin-top:14px}
+.motion-lab{display:grid;grid-template-columns:1fr 1fr;gap:22px}.motion-card{background:#080B16;border:1px solid var(--line-dark);border-radius:28px;padding:12px}.motion-card iframe{display:block;width:100%;height:420px;border:0;border-radius:19px;background:#080B16}.motion-card .cap{padding:14px 8px 4px;color:rgba(236,226,198,.62);font-size:12px}
+.flowline{display:grid;grid-template-columns:repeat(8,1fr);gap:8px}.step{min-height:112px;padding:15px 12px;border-radius:18px;background:rgba(255,253,248,.065);border:1px solid var(--line-dark)}.step b{font-family:"Noto Serif SC",serif;font-size:15px;font-weight:500}.step span{display:block;font-size:11px;color:rgba(236,226,198,.54);margin-top:8px}
+.recall{display:grid;grid-template-columns:1fr 1fr;gap:22px}.recall .card{padding:32px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.stat{padding:24px;border-radius:22px;background:rgba(255,253,248,.65);border:1px solid var(--line)}.stat b{display:block;font-family:"Noto Serif SC",serif;font-size:30px;font-weight:500}.stat span{display:block;font-size:12px;color:var(--ink-2);margin-top:8px}
+footer{padding:54px 0;background:#0A0D18;color:rgba(236,226,198,.55);font-size:12px}footer .in{max-width:1220px;margin:0 auto;padding:0 32px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+@media(max-width:980px){nav .links{display:none}.hero .copy,.split,.grid-2,.motion-lab,.recall{grid-template-columns:1fr}.hero h1{font-size:72px}.phones{gap:10px}.phone{width:142px!important;transform:none!important}.grid-3,.grid-4,.pillars,.stats{grid-template-columns:1fr 1fr}.screens{grid-template-columns:1fr 1fr}.flowline{grid-template-columns:1fr 1fr}.storyboard{grid-template-columns:1fr 1fr}.swatches{grid-template-columns:repeat(4,1fr)}.type{grid-template-columns:1fr}.motion-card iframe{height:360px}}
+@media(max-width:620px){.wrap{padding:0 20px}section{padding:80px 0}.hero .copy{padding-top:76px}.hero h1{font-size:56px}.hero .sub{font-size:17px}h2{font-size:37px}.lead{font-size:17px}.grid-3,.grid-4,.pillars,.stats,.screens,.flowline,.storyboard,.swatches{grid-template-columns:1fr}.phones{gap:5px}.phone{width:112px!important;border-radius:24px;padding:6px}.phone img{border-radius:18px}.screen-card .box{border-radius:26px}.motion-card iframe{height:310px}}
+</style>
+</head>
+<body>
+<nav><div class="in"><div class="brand">光合 <b>Lumen</b></div><div class="links"><a href="#opportunity">机会</a><a href="#persona">用户</a><a href="#journey">旅程</a><a href="#ai-system">AI 系统</a><a href="#screens">界面</a><a href="#dream-bus">梦境</a><a href="#quality">边界</a></div></div></nav>
+
+<header id="hero" class="hero">
+  <div class="wrap copy">
+    <div>
+      <div class="eyebrow">Sleep companion · 夜猫族</div>
+      <h1>光合<b>Lumen</b></h1>
+      <p class="sub">不试图让你马上睡着，也不要求你今晚想明白。它只是陪你，把这一夜分成更小、更轻的部分。</p>
+      <div class="meta"><span>健康 × 情绪引导</span><span>一周睡眠旅程</span><span>语音与文字并行</span><span>默认陪伴，主动造梦</span></div>
+    </div>
+    <figure class="portrait"><img src="kv/key-visual.png" alt="光合 Lumen 的夜色书房主视觉：暖灯、窗外城市与一颗漂浮的光种"><figcaption class="small" style="padding:12px 16px;color:rgba(236,226,198,.55)">主视觉 · AIGC 辅助生成，人工统一光源、构图与品牌叙事</figcaption></figure>
+  </div>
+  <div class="stage"><div class="phones">
+    <div class="phone"><img src="screens/03-checkin.png" alt="噪声分类界面"></div>
+    <div class="phone mid"><img src="screens/04-listener.png" alt="说给夜晚听界面"></div>
+    <div class="phone"><img src="screens/08-dream-bus.png" alt="夜行公交梦境界面"></div>
+  </div></div>
+</header>
+
+<section id="opportunity">
+  <div class="wrap">
+    <div class="eyebrow">01 · 机会</div>
+    <h2>熬夜不总是缺乏自律，也可能是白天没有真正属于自己的时间。</h2>
+    <p class="lead">夜猫族在夜晚争夺自主感。未完成的任务、反复出现的对话和对明天的担心，让大脑保持高唤醒；传统睡眠产品又常以评分、打卡和连续记录制造新的压力。</p>
+    <div class="grid-3 block">
+      <article class="card"><span class="tag">问题</span><h3 style="margin-top:14px">夜晚不适合解决问题</h3><p>越要求“别想了”，越容易强化反刍。Lumen 不阻止思考，而是帮助用户暂时卸载认知负担。</p></article>
+      <article class="card"><span class="tag">判断</span><h3 style="margin-top:14px">不用总分判断睡眠</h3><p>不接入传感器，不使用睡眠评分，只记录用户主动提供的行为、偏好和主观感受。</p></article>
+      <article class="card"><span class="tag">机会</span><h3 style="margin-top:14px">默认陪伴，主动造梦</h3><p>声音与呼吸构成低刺激底座，只有在用户主动点击时，Dreamweaver 才展开一段梦境。</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="persona" class="alt">
+  <div class="wrap">
+    <div class="eyebrow">02 · 用户研究</div>
+    <h2>主 Persona：夜猫族「林澈」。</h2>
+    <div class="split block">
+      <div>
+        <p class="quote">“我不是不想睡，我是不想结束今天。”</p>
+        <div class="grid-2" style="margin-top:30px">
+          <div class="card"><span class="tag">说 Says</span><p style="margin-top:14px">终于没有人找我了。现在睡了，明天一睁眼又是别人的时间。</p></div>
+          <div class="card"><span class="tag">做 Does</span><p style="margin-top:14px">明明很累，却继续刷手机。每一次“再看十分钟”，都在延长夜晚。</p></div>
+          <div class="card"><span class="tag">感受 Feels</span><p style="margin-top:14px">舍不得结束一天，也对自己熬夜感到轻微自责。</p></div>
+          <div class="card"><span class="tag">需要 Needs</span><p style="margin-top:14px">保留夜间仪式，只提前十五分钟，把独处还给白天。</p></div>
+        </div>
+      </div>
+      <figure class="fig"><img src="diagrams/empathy-map.png" alt="夜猫族的说、想、做、感受、看、听、痛点与收获移情图"><figcaption>夜猫族移情图 · Persona 不是装饰，每一象限都对应后续设计决策</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="insight">
+  <div class="wrap">
+    <div class="eyebrow">03 · 设计策略</div>
+    <h2>把“戒掉熬夜”改写成“把夜晚还给你”。</h2>
+    <p class="lead">产品不剥夺夜间自主感，而是把独处仪式提前；不禁止手机，而是提供更有吸引力的替代；不解决深夜的问题，而是把问题延后到更合适的时间。</p>
+    <div class="pillars block">
+      <div class="pillar"><b>不责备</b><span>不使用失败、落后、连续中断等负向表达。</span></div>
+      <div class="pillar"><b>不抢走</b><span>保留夜生活，只建议提前十五分钟。</span></div>
+      <div class="pillar"><b>不催促</b><span>任何阶段都可以暂停、跳过或退出。</span></div>
+      <div class="pillar"><b>不伪装医疗</b><span>不诊断、不治疗、不承诺睡眠改善。</span></div>
+    </div>
+    <figure class="fig block"><img src="diagrams/core-flow.png" alt="脑子很吵核心流程：签到、分类、倾听、微行动、声音与呼吸、可选夜行公交、睡眠模式、晨光留言"><figcaption>核心流程 · 问题不在深夜解决；先卸载存在感，明早再决定是否处理</figcaption></figure>
+  </div>
+</section>
+
+<section id="journey" class="alt">
+  <div class="wrap">
+    <div class="eyebrow">04 · 一周睡眠旅程</div>
+    <h2>七天不是打卡，而是一条逐渐获得控制感的情绪曲线。</h2>
+    <p class="lead">每天对应一个产品动作、一个用户感受和一次系统学习。中断不会被归零，上一夜也不是失败。</p>
+    <figure class="fig block"><img src="diagrams/weekly-journey.png" alt="七天睡眠旅程图：看见、降噪、呼吸、命名、替代、提前十五分钟与七页夜之书"><figcaption>从“被接纳”逐渐走向“可控与自我理解”，不展示优劣，只展示变化</figcaption></figure>
+    <div class="stats block">
+      <div class="stat"><b>10 秒</b><span>完成睡前签到</span></div>
+      <div class="stat"><b>30–90 秒</b><span>完成一个微行动</span></div>
+      <div class="stat"><b>5–10 分钟</b><span>默认声音与呼吸</span></div>
+      <div class="stat"><b>主动开启</b><span>梦境不自动生成</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="ai-system" class="dark">
+  <div class="wrap">
+    <div class="eyebrow">05 · AI 系统</div>
+    <h2>一个 AI 核心，三种存在方式。</h2>
+    <p class="lead">Curator 默认隐形运行；Listener 由用户主动开启；Dreamweaver 只在用户点击“展开今晚这一页”后出现。AI 不抢占夜晚，也不伪装成真人咨询师。</p>
+    <figure class="fig block"><img src="diagrams/ai-system.png" alt="Lumen AI 系统图：Curator、Listener、Dreamweaver 与安全边界"><figcaption>三种能力共享同一套边界：不诊断、不无限对话、不制造依赖、不主动造梦</figcaption></figure>
+    <div class="grid-3 block">
+      <article class="card"><span class="tag">Curator</span><h3 style="margin-top:14px">隐形策展人</h3><p>组织声音、呼吸与时长。推荐可解释、可更换，不直接占据界面。</p></article>
+      <article class="card"><span class="tag">Listener</span><h3 style="margin-top:14px">有限倾听者</h3><p>一次只问一个问题，每次只给一个微行动，三到五分钟后主动收束。</p></article>
+      <article class="card"><span class="tag">Dreamweaver</span><h3 style="margin-top:14px">主动造梦者</h3><p>目前不生成，点击后展开插画、旁白和三层视差。故事在安静中结束。</p></article>
+    </div>
+    <figure class="fig block"><img src="diagrams/memory-flow.png" alt="AI 记忆流向图：今夜表达、用户确认、偏好与周摘要、下周推荐"><figcaption>默认不保存具体对话，只保留偏要和用户确认过的本周摘要</figcaption></figure>
+  </div>
+</section>
+
+<section id="core-flow">
+  <div class="wrap">
+    <div class="eyebrow">06 · 主展示流程</div>
+    <h2>脑子很吵，停不下来。</h2>
+    <p class="lead">用户说：“明天的方案还没做完，我一直在想如果老板又否定怎么办。” Lumen 不急着安慰，也不在深夜给行动计划，只帮用户把问题分成可以承受的更小部分。</p>
+    <div class="flowline block">
+      <div class="step"><b>01 签到</b><span>选择噪声类型</span></div><div class="step"><b>02 命名</b><span>反复想的话</span></div><div class="step"><b>03 倾听</b><span>复述最有重量的一句</span></div><div class="step"><b>04 微行动</b><span>放进明早的信封</span></div><div class="step"><b>05 呼吸</b><span>4 秒吸气 6 秒呼气</span></div><div class="step"><b>06 梦境</b><span>用户主动展开</span></div><div class="step"><b>07 熄灯</b><span>屏幕暗下，音频继续</span></div><div class="step"><b>08 明早</b><span>重新决定是否处理</span></div>
+    </div>
+    <div class="grid-3 block">
+      <article class="card"><div class="note"><div class="num">01</div><div><h3>接住</h3><p>复述用户最有情绪重量的一句，不分析人格，不急于给建议。</p></div></div></article>
+      <article class="card"><div class="note"><div class="num">02</div><div><h3>命名</h3><p>把混乱变成一句可理解的话，让用户知道“我被听见了”。</p></div></div></article>
+      <article class="card"><div class="note"><div class="num">03</div><div><h3>延后</h3><p>允许把问题带到明早。夜晚不需要完成所有收尾。</p></div></div></article>
+    </div>
+  </div>
+</section>
+
+<section id="screens" class="alt">
+  <div class="wrap">
+    <div class="eyebrow">07 · 核心界面</div>
+    <h2>十二屏，从签到到七页夜之书。</h2>
+    <p class="lead">界面只在需要时出现。默认是声音与呼吸，梦境、对话和记忆管理都由用户主动进入。</p>
+    <div class="screens block">
+      <div class="screen-card"><div class="box"><img src="screens/01-onboarding.png" alt="Onboarding：你的夜晚通常从哪里开始"></div><div class="label"><b>01</b> 夜晚从哪儿开始</div></div>
+      <div class="screen-card"><div class="box"><img src="screens/02-home.png" alt="首页：今晚这一页"></div><div class="label"><b>02</b> 今晚这一页</div></div>
+      <div class="screen-card"><div class="box"><img src="screens/03-checkin.png" alt="噪声分类界面：未完成、反复想、担心未来"></div><div class="label"><b>03</b> 噪声分类</div></div>
+      <div class="screen-card"><div class="box"><img src="screens/04-listener.png" alt="Listener 说给夜晚听界面"></div><div class="label"><b>04</b> 说给夜晚听</div></div>
+      <div class="screen-card"><div class="box"><img src="screens/05-micro-action.png" alt="微行动：放进明早的信封"></div><div class="label"><b>05</b> 放进明早的信封</div></div>
+      <div class="screen-card"><div class="box"><img src="screens/06-audio-player.png" alt="默认声音与呼吸播放器"></div><div class="label"><b>06</b> 声音与呼吸</div></div>
+      <div class="screen-card"><div class="box"><img src="screens/07-sleep-mode.png" alt="睡眠模式：屏幕熄灭，音频继续"></div><div class="label"><b>07</b> 熄灯</div></div>
+      <div class="screen-card"><div class="box"><img src="screens/08-dream-bus.png" alt="夜行公交梦境界面"></div><div class="label"><b>08</b> 夜行公交</div></div>
+      <div class="screen-card"><div class="box"><img src="screens/09-morning-note.png" alt="晨光留言：现在处理、继续放在那里或不再需要"></div><div class="label"><b>09</b> 晨光留言</div></div>
+      <div class="screen-card"><div class="box"><img src="screens/10-night-book.png" alt="七页夜之书：七夜轨迹与用户确认的摘要"></div><div class="label"><b>10</b> 七页夜之书</div></div>
+      <div class="screen-card"><div class="box"><img src="screens/11-ai-system.png" alt="光种的三种方式：Curator、Listener、Dreamweaver"></div><div class="label"><b>11</b> 光种的三种方式</div></div>
+      <div class="screen-card"><div class="box"><img src="screens/12-memory-privacy.png" alt="记忆边界：默认不保存具体对话"></div><div class="label"><b>12</b> 记忆边界</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="visual-system">
+  <div class="wrap">
+    <div class="eyebrow">08 · 视觉系统</div>
+    <h2>温柔诗性，克制高级。</h2>
+    <p class="lead">视觉概念是一间夜深时还亮着微弱灯光的私人书房。每屏只允许一个主要光源，绘本感不牺牲夜间可读性。</p>
+    <div class="swatches block">
+      <div class="swatch"><div class="c" style="background:#F7F1E8"></div><b>纸页</b><span>#F7F1E8</span></div>
+      <div class="swatch"><div class="c" style="background:#121319"></div><b>暖黑</b><span>#121319</span></div>
+      <div class="swatch"><div class="c" style="background:#202B46"></div><b>夜色蓝</b><span>#202B46</span></div>
+      <div class="swatch"><div class="c" style="background:#D8A15E"></div><b>琥珀光</b><span>#D8A15E</span></div>
+      <div class="swatch"><div class="c" style="background:#7B6C9D"></div><b>暮色紫</b><span>#7B6C9D</span></div>
+      <div class="swatch"><div class="c" style="background:#ECE2C6"></div><b>月光米白</b><span>#ECE2C6</span></div>
+      <div class="swatch"><div class="c" style="background:#A8C8A0"></div><b>新芽绿</b><span>#A8C8A0</span></div>
+    </div>
+    <div class="type">
+      <div class="label">展示字体 / 思源宋体</div><div class="demo serif">有些夜晚只需要被经过。</div>
+      <div class="label">标题 / 28</div><div class="demo" style="font-size:28px;font-weight:600">今晚这一页</div>
+      <div class="label">正文 / 16</div><div class="demo body">今晚不用想清楚，明早再回来。</div>
+    </div>
+    <div class="grid-4 block">
+      <article class="card"><h3>材质</h3><p>纸张颗粒、柔雾、水彩边缘与轻微胶片噪点，避免大面积玻璃拟态。</p></article>
+      <article class="card"><h3>动效</h3><p>光种缓慢移动；4 秒吸气、6 秒呼气；视差远景 3–5%，中景 8–10%，近景 12–15%。</p></article>
+      <article class="card"><h3>字体</h3><p>展示字体用宋体，正文用 MiSans 或系统无衬线。行长 16–22 个汉字。</p></article>
+      <article class="card"><h3>无障碍</h3><p>关键确认始终显示文字；支持减少动态效果、单手操作和夜间低亮度。</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="dream-bus" class="dark">
+  <div class="wrap">
+    <div class="eyebrow">09 · Dreamweaver</div>
+    <h2>夜行公交：一册会缓慢呼吸的立体绘本。</h2>
+    <p class="lead">用户不主动点击时，梦境不会出现。展开后，4–6 个场景、短句旁白与三层视差把“脑内循环”转译成一趟安静的夜班旅程。</p>
+    <div class="storyboard block">
+      <div class="act"><b>上车</b><span>今晚的念头，都先坐下了。</span><em>卧室 → 车厢</em></div>
+      <div class="act"><b>同行</b><span>它们没有消失，只是不再贴着你。</span><em>车窗与念头剪影</em></div>
+      <div class="act"><b>到站</b><span>这一站，先让它走。</span><em>车门打开</em></div>
+      <div class="act"><b>空座位</b><span>你不用今晚把它想明白。</span><em>信封留在座位上</em></div>
+      <div class="act"><b>熄灯</b><span>明早再回来。</span><em>进入呼吸与睡眠</em></div>
+    </div>
+    <figure class="fig block"><img src="motion/night-bus-poster.png" alt="夜行公交插画：三层视差、远处城市、窗前雨和一颗缓慢变暗的光种"><figcaption>梦境海报 · 插画、旁白与视差动效，不是完整短动画</figcaption></figure>
+    <div class="motion-lab block">
+      <div class="motion-card"><iframe src="motion/breath.html" title="4-6 呼吸引导动效" loading="lazy"></iframe><div class="cap">4 秒吸气、6 秒呼气 · 循环 10 秒 · 支持减少动态效果</div></div>
+      <div class="motion-card"><iframe src="motion/night-bus.html" title="夜行公交三层视差动效" loading="lazy"></iframe><div class="cap">城市远景、雨幕中景、光种近景 · 视差速度不同步</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="voice-memory" class="alt">
+  <div class="wrap">
+    <div class="eyebrow">10 · 语音与记忆</div>
+    <h2>听得见你，但不一直听着你。</h2>
+    <p class="lead">语音与文字采用双通道、单会话：可以按住说话，也可以直接打字；转写先确认再发送；松手后立即结束录音。AI 默认不保存具体对话。</p>
+    <div class="recall block">
+      <figure class="fig"><img src="screens/04-listener.png" alt="Listener 支持语音与文字并行输入"><figcaption>Listener · 把最吵的一句话放在这里</figcaption></figure>
+      <figure class="fig"><img src="screens/12-memory-privacy.png" alt="用户确认后才保留偏好与周摘要"><figcaption>Memory · 默认不保存具体对话，忘记也是一种权利</figcaption></figure>
+    </div>
+    <div class="grid-3 block">
+      <article class="card"><h3>接住</h3><p>只复述最有情绪重量的一句，不假装真人，不使用“我完全懂你”。</p></article>
+      <article class="card"><h3>微行动</h3><p>一次只给一个 30–90 秒动作，例如把担心放进明早的信封。</p></article>
+      <article class="card"><h3>延后</h3><p>问题可以明天回来。深夜不处理复杂决定，也不把完成动作绑定睡眠质量。</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="aigc">
+  <div class="wrap">
+    <div class="eyebrow">11 · AIGC 与制作流程</div>
+    <h2>AI 是工具，不是案例主角。</h2>
+    <p class="lead">作品集明确区分“产品内 AI”与“制作阶段 AIGC”。前者是 Curator、Listener、Dreamweaver 的产品设计概念；后者负责研究、插画与动效预演，最终光源、构图和节奏仍由人工统一。</p>
+    <div class="grid-3 block">
+      <article class="card"><span class="tag">ChatGPT</span><h3 style="margin-top:14px">研究合成与文案</h3><p>访谈提纲、Persona 归纳、章节文案、AI 话术、安全边界与测试用例。</p></article>
+      <article class="card"><span class="tag">Midjourney</span><h3 style="margin-top:14px">梦境插画与主视觉</h3><p>夜行公交、夜雨、空座位和私书房视觉。生成画面不直接嵌入文字，所有标题由 HTML 渲染。</p></article>
+      <article class="card"><span class="tag">即梦 AI</span><h3 style="margin-top:14px">动效方向预演</h3><p>车窗、光影、视差与呼吸测试，用于确定运动方向，不替代最终品牌节奏。</p></article>
+    </div>
+    <div class="grid-2 block">
+      <article class="card"><h3>产品内 AI</h3><p>负责“组织今晚、有限倾听、主动造梦”。不接传感器，不读完整历史，不做医疗诊断，不制造依赖。</p></article>
+      <article class="card"><h3>制作阶段 AIGC</h3><p>用于探索视觉与文本，所有产出经过统一光源、内容审校与人工取舍。作品集不把工具数量当作设计成果。</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="quality" class="dark">
+  <div class="wrap">
+    <div class="eyebrow">12 · 质量与边界</div>
+    <h2>好的睡眠陪伴，不是让用户一直需要它。</h2>
+    <p class="lead">Lumen 的设计目标不是提升对话时长或生成次数，而是让用户更容易开始、愿意退出，并在第二天重新获得处理问题的选择权。</p>
+    <div class="grid-3 block">
+      <article class="card"><h3>默认低刺激</h3><p>夜间暗色界面、静默通知、无红色提醒、无失败状态、无连续打卡惩罚。</p></article>
+      <article class="card"><h3>记忆可控</h3><p>原始表达默认 24 小时后消失；偏好与周摘要需用户确认；每一项都能单独删除。</p></article>
+      <article class="card"><h3>安全转介</h3><p>若出现自伤或危机表达，暂停普通流程并提供专业资源。Lumen 不替代医疗或心理咨询。</p></article>
+    </div>
+    <div class="grid-4 block">
+      <div class="stat"><b>≤10s</b><span>签到目标</span></div>
+      <div class="stat"><b>30–90s</b><span>微行动目标</span></div>
+      <div class="stat"><b>5–10min</b><span>默认声音路径</span></div>
+      <div class="stat"><b>0</b><span>睡眠评分与医疗诊断</span></div>
+    </div>
+    <div class="grid-2 block">
+      <article class="card"><h3>本次交付不包含</h3><p>真实 App、后端、传感器、语音识别、生成模型、数据持久化、可用性测试数据与睡眠改善结论。</p></article>
+      <article class="card"><h3>作品集重点</h3><p>设计思维、AI 产品判断、视觉系统、动效方向、伦理边界与可复现的静态案例呈现。</p></article>
+    </div>
+  </div>
+</section>
+
+<footer><div class="in"><div>光合 Lumen · 睡眠陪伴 App — UI/UX 作品集</div><div>默认陪伴，主动造梦 · 温柔诗性，克制高级</div></div></footer>
+</body>
+</html>
