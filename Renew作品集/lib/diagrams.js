@@ -7,8 +7,8 @@ body{font-family:${tokens.font.body};background:${tokens.colors.paper};color:${t
 .head{display:flex;justify-content:space-between;gap:30px;align-items:flex-end;border-bottom:1px solid ${tokens.colors.line};padding-bottom:22px}
 .kicker{font-family:${tokens.font.mono};font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:${tokens.colors.signal}}
 .title{font-family:${tokens.font.display};font-size:42px;letter-spacing:-.04em;margin-top:7px}.sub{max-width:560px;font-size:14px;line-height:1.6;color:${tokens.colors.muted}}
-.grid{display:grid;gap:14px;margin-top:24px}.card{background:${tokens.colors.surface};border:1px solid ${tokens.colors.line};border-radius:18px;padding:18px}
-.card h3{font-family:${tokens.font.display};font-size:18px;font-weight:500}.card p,.card li{font-size:13px;line-height:1.55;color:${tokens.colors.muted}}.card ul{padding-left:17px;margin-top:8px}.tag{display:inline-flex;align-items:center;height:25px;padding:0 9px;border-radius:999px;background:rgba(255,90,54,.12);color:#B83A22;font-size:10px;font-weight:700}.tag.acid{background:rgba(200,244,90,.18);color:#465B00}.tag.warn{background:rgba(243,181,68,.18);color:#7A5200}
+.grid{display:grid;gap:14px;margin-top:24px}.flowline{display:flex;align-items:center;gap:8px;margin-top:24px}.flowline .node{flex:1;min-width:0}.flowline .arrow{flex:0 0 18px}.card{background:${tokens.colors.surface};border:1px solid ${tokens.colors.line};border-radius:18px;padding:18px}
+.card h3{font-family:${tokens.font.display};font-size:18px;font-weight:500}.card p,.card li{font-size:13px;line-height:1.55;color:${tokens.colors.muted}}.card ul{padding-left:17px;margin-top:8px}.tag{display:inline-flex;align-items:center;height:25px;padding:0 9px;border-radius:999px;background:rgba(255,90,54,.12);color:${tokens.colors.ink};font-size:10px;font-weight:700}.tag.acid{background:rgba(200,244,90,.18);color:${tokens.colors.ink}}.tag.warn{background:rgba(243,181,68,.18);color:${tokens.colors.ink}}
 .node{min-height:86px;border-radius:16px;background:${tokens.colors.surface};border:1px solid ${tokens.colors.line};padding:15px;text-align:center;display:flex;flex-direction:column;justify-content:center}.node b{font-size:15px}.node span{display:block;font-size:11px;color:${tokens.colors.muted};margin-top:5px}.arrow{font-family:${tokens.font.mono};color:${tokens.colors.signal};font-size:24px;display:flex;align-items:center;justify-content:center}.footer{position:absolute;left:58px;right:58px;bottom:26px;display:flex;justify-content:space-between;font-family:${tokens.font.mono};font-size:10px;color:${tokens.colors.muted};letter-spacing:.12em;text-transform:uppercase}
 .risk{border-radius:16px;padding:18px;min-height:250px;border:1px solid ${tokens.colors.line};background:${tokens.colors.surface}}.risk.high{border-color:${tokens.colors.signal}}.risk.mid{border-color:${tokens.colors.warning}}.risk.low{border-color:${tokens.colors.acid}}.risk b{font-family:${tokens.font.display};font-size:25px;display:block}.risk p{margin-top:8px}.risk ul{margin-top:14px}
 `;
@@ -22,7 +22,7 @@ const flowNode = (title, copy) => `<div class="node"><b>${title}</b><span>${copy
 const detectionFlow = canvas(
   '从线索到决定',
   '识别不是终点。每条线索都要经过用户确认，才能进入续费雷达。',
-  `<div class="grid" style="grid-template-columns:repeat(9,1fr)">${[
+  `<div class="flowline">${[
     ['导入线索', '账单 / 邮件 / 截图'],
     ['解析字段', '商户 / 金额 / 周期'],
     ['置信度', '高置信度直接确认'],
@@ -50,7 +50,7 @@ const riskModel = canvas(
 const cancellationFlow = canvas(
   '取消不是一次按钮点击',
   '把取消拆成准备、操作、确认和验证四个阶段，让用户知道自己在哪一步。',
-  `<div class="grid" style="grid-template-columns:repeat(7,1fr)">${[
+  `<div class="flowline">${[
     ['检查权益', '还剩多少时间'],
     ['导出内容', '避免丢失文件'],
     ['打开入口', '找到管理订阅'],
