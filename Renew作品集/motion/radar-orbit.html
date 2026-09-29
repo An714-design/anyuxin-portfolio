@@ -1,0 +1,18 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:#F4F0E8;color:#151515}
+.scene{position:relative;width:1600px;height:1000px;overflow:hidden;background:#F4F0E8}
+.mono{font-family:"SFMono-Regular","Cascadia Code","Roboto Mono",monospace;font-variant-numeric:tabular-nums}
+.display{font-family:"Noto Serif SC","Songti SC","STSong",serif;font-weight:500;letter-spacing:-.05em}
+.kicker{font-family:"SFMono-Regular","Cascadia Code","Roboto Mono",monospace;font-size:14px;letter-spacing:.2em;text-transform:uppercase;color:#FF5A36}
+.caption{font-size:16px;line-height:1.6;color:rgba(21,21,21,.64)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+.scene{background:#151515;color:#FFFDF8}
+.head{position:absolute;left:76px;top:70px}.head h1{font-size:68px;margin-top:10px}.head p{max-width:580px;color:rgba(255,253,248,.64);font-size:18px;line-height:1.55;margin-top:18px}
+.stage{position:absolute;right:60px;top:80px;width:820px;height:820px}.ring{position:absolute;inset:0;border-radius:50%;border:1px solid rgba(255,253,248,.18)}.ring.two{inset:120px}.ring.three{inset:240px}
+.rotor{position:absolute;inset:0;animation:rotate 18s linear infinite}.node{position:absolute;width:34px;height:34px;border-radius:50%;background:#FF5A36;outline:12px solid rgba(255,90,54,.14)}.node.a{left:390px;top:12px}.node.b{left:86px;top:346px;background:#F3B544;outline:12px solid rgba(243,181,68,.14)}.node.c{left:628px;top:612px;background:#8B877E;outline:12px solid rgba(139,135,126,.14)}
+.center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:176px;height:176px;border-radius:50%;background:#FFFDF8;color:#151515;display:grid;place-items:center;text-align:center;font-size:17px;font-weight:700}.center span{display:block;font-family:"SFMono-Regular","Cascadia Code","Roboto Mono",monospace;font-size:12px;font-weight:400;color:#8B877E;margin-top:5px}
+.legend{position:absolute;left:78px;bottom:70px;display:grid;gap:10px}.legend b{font-family:"SFMono-Regular","Cascadia Code","Roboto Mono",monospace;font-size:12px;font-weight:500;color:rgba(255,253,248,.7)}.legend i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:8px}.legend .r{background:#FF5A36}.legend .y{background:#F3B544}.legend .g{background:#8B877E}
+@keyframes rotate{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+</style></head><body><div class="scene"><div class="head"><div class="kicker">Renewal Radar · Simulated data</div><h1>续费雷达</h1><p>临近续费的节点进入内圈。用户先看到金额、来源和日期，再决定是否继续。</p></div><div class="stage"><div class="ring"></div><div class="ring two"></div><div class="ring three"></div><div class="rotor"><div class="node a"></div><div class="node b"></div><div class="node c"></div></div><div class="center">今天<span>即将扣费 3 笔</span></div></div><div class="legend"><b><i class="r"></i>7 天内高风险</b><b><i class="y"></i>30 天内需关注</b><b><i class="g"></i>已处理或暂停</b></div></div></body></html>

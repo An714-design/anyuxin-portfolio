@@ -1,0 +1,58 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:#F4F0E8;color:#151515}
+.screen{position:relative;width:390px;height:844px;overflow:hidden;background:#F4F0E8;color:#151515}
+.screen.dark{background:#151515;color:#FFFDF8}
+.status{height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;font-size:11px;font-family:"SFMono-Regular","Cascadia Code","Roboto Mono",monospace;letter-spacing:.04em;opacity:.68}
+.body{padding:12px 24px 0}
+.kicker{font-size:10px;line-height:1.3;letter-spacing:.18em;text-transform:uppercase;color:#FF5A36}
+h1,h2,h3{font-family:"Noto Serif SC","Songti SC","STSong",serif;font-weight:500;letter-spacing:-.03em}
+h1{font-size:34px;line-height:1.16}h2{font-size:26px;line-height:1.18}h3{font-size:17px;line-height:1.28}
+p{font-size:13px;line-height:1.6;color:rgba(21,21,21,.65)}
+.dark p{color:rgba(255,253,248,.65)}.muted{color:#8B877E}
+.mono{font-family:"SFMono-Regular","Cascadia Code","Roboto Mono",monospace;font-variant-numeric:tabular-nums}
+.card{background:#FFFDF8;border:1px solid rgba(21,21,21,.14);border-radius:18px;padding:16px}
+.dark .card{background:rgba(255,253,248,.06);border-color:rgba(255,253,248,.14)}
+.row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid rgba(21,21,21,.14)}
+.row:last-child{border-bottom:0;padding-bottom:0}.row:first-child{padding-top:0}
+.chip{display:inline-flex;align-items:center;height:28px;padding:0 10px;border-radius:999px;background:rgba(255,90,54,.12);color:#B83A22;font-size:11px;font-weight:700}
+.chip.acid{background:rgba(200,244,90,.18);color:#465B00}.chip.warn{background:rgba(243,181,68,.18);color:#7A5200}
+.btn{height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:#151515;color:#FFFDF8;font-weight:700;font-size:14px}
+.btn.ghost{background:transparent;color:inherit;border:1px solid rgba(21,21,21,.28)}
+.dark .btn{background:#C8F45A;color:#151515}.dark .btn.ghost{border-color:rgba(255,253,248,.25)}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mini{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#8B877E}
+.source{font-size:11px;line-height:1.45;color:#8B877E}
+.confidence{height:6px;border-radius:99px;background:rgba(21,21,21,.08);overflow:hidden}.confidence i{display:block;height:100%;border-radius:99px;background:#C8F45A}
+.field{border:1px solid rgba(21,21,21,.14);border-radius:12px;padding:11px 12px;background:rgba(255,253,248,.7)}
+.field.warn{border-color:#F3B544;background:rgba(243,181,68,.09)}
+.field b{display:block;font-size:14px;margin-top:3px}.field span{font-size:10px;color:#8B877E}
+.nav{position:absolute;left:0;right:0;bottom:0;height:68px;border-top:1px solid rgba(21,21,21,.14);display:grid;grid-template-columns:repeat(4,1fr);align-items:center;text-align:center;font-size:10px;color:#8B877E;background:rgba(244,240,232,.94)}
+.nav b{display:block;font-size:16px;line-height:1;margin-bottom:5px;color:#151515}
+.dark .nav{background:rgba(21,21,21,.94);border-color:rgba(255,253,248,.12);color:rgba(255,253,248,.48)}.dark .nav b{color:#FFFDF8}
+.phone-bar{position:absolute;left:50%;bottom:8px;transform:translateX(-50%);width:134px;height:5px;border-radius:99px;background:currentColor;opacity:.7}
+.amount{font-family:"SFMono-Regular","Cascadia Code","Roboto Mono",monospace;font-size:32px;font-weight:700;letter-spacing:-.05em}
+.rule{height:1px;background:rgba(21,21,21,.14);margin:14px 0}
+.scan{position:relative;overflow:hidden}.scan:after{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:#FF5A36;animation:scan 900ms cubic-bezier(.22,.61,.36,1) infinite}
+@keyframes scan{from{transform:translateY(0)}to{transform:translateY(132px)}}
+@media(prefers-reduced-motion:reduce){.scan:after{animation:none;transform:translateY(66px)}}
+.radar{position:relative;width:286px;height:286px;margin:18px auto 4px;border-radius:50%;background:#EAE4D9;border:1px solid rgba(21,21,21,.08)}
+.radar-ring{position:absolute;inset:0;border-radius:50%;border:1px dashed rgba(21,21,21,.14)}
+.radar-ring.two{inset:31px}.radar-ring.three{inset:62px}
+.radar-center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:72px;height:72px;border-radius:50%;background:#151515;color:#FFFDF8;display:grid;place-items:center;text-align:center;font-size:11px}
+.radar-node{position:absolute;width:18px;height:18px;border-radius:50%;background:#FF5A36;outline:6px solid rgba(255,90,54,.12)}
+.radar-node.yellow{background:#F3B544;outline:6px solid rgba(243,181,68,.14)}
+.radar-node.gray{background:#8B877E;outline:6px solid rgba(139,135,126,.12)}
+.radar-label{position:absolute;font-family:"SFMono-Regular","Cascadia Code","Roboto Mono",monospace;font-size:9px;padding:4px 6px;border-radius:6px;background:#FFFDF8;border:1px solid rgba(21,21,21,.14);white-space:nowrap}
+.calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:18px}
+.day{height:56px;border:1px solid rgba(21,21,21,.14);border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:11px;background:rgba(255,253,248,.55)}
+.day b{font-family:"SFMono-Regular","Cascadia Code","Roboto Mono",monospace;font-size:13px}.day i{width:6px;height:6px;border-radius:50%;background:#FF5A36;margin-top:5px}.day.active{border-color:#151515;background:#151515;color:#FFFDF8}.day.active i{background:#C8F45A}
+.price-bars{height:96px;display:flex;align-items:flex-end;gap:10px;margin-top:18px;padding:0 4px}
+.price-bar{flex:1;border-radius:8px 8px 3px 3px;background:rgba(21,21,21,.12);position:relative}.price-bar.on{background:#151515}.price-bar span{position:absolute;left:50%;bottom:-22px;transform:translateX(-50%);font-family:"SFMono-Regular","Cascadia Code","Roboto Mono",monospace;font-size:9px;color:#8B877E}
+.step{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid rgba(21,21,21,.14)}.step:last-child{border-bottom:0}
+.step-num{width:28px;height:28px;flex:0 0 auto;border-radius:50%;display:grid;place-items:center;background:#151515;color:#FFFDF8;font-family:"SFMono-Regular","Cascadia Code","Roboto Mono",monospace;font-size:11px}
+.step.done .step-num{background:#C8F45A;color:#151515}
+.check{width:22px;height:22px;border-radius:7px;border:1px solid rgba(21,21,21,.28);display:grid;place-items:center;font-size:12px}.check.on{background:#C8F45A;border-color:#C8F45A}
+.stamp{display:inline-flex;align-items:center;justify-content:center;height:34px;padding:0 12px;border:1px solid #FF5A36;color:#FF5A36;border-radius:6px;font-family:"SFMono-Regular","Cascadia Code","Roboto Mono",monospace;font-size:11px;letter-spacing:.08em;transform:rotate(-3deg)}
+.swatch{height:54px;border-radius:12px;border:1px solid rgba(21,21,21,.14);display:flex;align-items:flex-end;padding:8px;color:#FFFDF8;font-family:"SFMono-Regular","Cascadia Code","Roboto Mono",monospace;font-size:9px}.swatch.light{color:#151515}
+</style></head><body><div class="screen "><div class="status"><span>9:41</span><span class="mono">Renew · DEMO</span><span>5G ▰</span></div><div class="body"><div class="kicker">02 · Review</div><h2 style="margin-top:9px">需要确认 2 个字段</h2><p style="margin-top:8px">高置信度线索已整理，低置信度字段会保留原文来源。</p><div class="card" style="margin-top:18px"><div class="row"><div><h3>StreamMax</h3><p>9 月 18 日 · 来自邮件截图</p></div><span class="chip acid">98%</span></div><div class="confidence"><i style="width:98%"></i></div><p class="source" style="margin-top:10px">金额 ¥68.00 · 月付 · 下次续费 10 月 18 日</p></div><div class="card" style="margin-top:12px"><div class="row"><div><h3>CloudBox</h3><p>9 月 20 日 · 来自 PDF 账单</p></div><span class="chip warn">需确认</span></div><div class="field warn" style="margin-top:12px"><span>币种 · 请检查</span><b>USD $12.99</b></div><div class="field warn" style="margin-top:10px"><span>周期 · 请检查</span><b>年付 / 月付？</b></div></div><div class="btn" style="margin-top:16px">确认高置信度项目</div><div class="btn ghost" style="margin-top:10px">逐条检查</div></div><div class="nav"><div><b>⌂</b>首页</div><div><b>◷</b>日历</div><div><b>▤</b>订阅</div><div><b>↘</b>节省</div></div><div class="phone-bar"></div></div></body></html>
