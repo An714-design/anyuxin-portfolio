@@ -42,6 +42,19 @@ p{font-size:13px;line-height:1.6;color:rgba(21,21,21,.65)}
 .scan{position:relative;overflow:hidden}.scan:after{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:${tokens.colors.signal};animation:scan 900ms ${tokens.motion.easing} infinite}
 @keyframes scan{from{transform:translateY(0)}to{transform:translateY(132px)}}
 @media(prefers-reduced-motion:reduce){.scan:after{animation:none;transform:translateY(66px)}}
+.radar{position:relative;width:286px;height:286px;margin:18px auto 4px;border-radius:50%;background:#EAE4D9;border:1px solid rgba(21,21,21,.08)}
+.radar-ring{position:absolute;inset:0;border-radius:50%;border:1px dashed rgba(21,21,21,.14)}
+.radar-ring.two{inset:31px}.radar-ring.three{inset:62px}
+.radar-center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:72px;height:72px;border-radius:50%;background:${tokens.colors.ink};color:${tokens.colors.surface};display:grid;place-items:center;text-align:center;font-size:11px}
+.radar-node{position:absolute;width:18px;height:18px;border-radius:50%;background:${tokens.colors.signal};outline:6px solid rgba(255,90,54,.12)}
+.radar-node.yellow{background:${tokens.colors.warning};outline:6px solid rgba(243,181,68,.14)}
+.radar-node.gray{background:${tokens.colors.muted};outline:6px solid rgba(139,135,126,.12)}
+.radar-label{position:absolute;font-family:${MONO};font-size:9px;padding:4px 6px;border-radius:6px;background:${tokens.colors.surface};border:1px solid ${tokens.colors.line};white-space:nowrap}
+.calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:18px}
+.day{height:56px;border:1px solid ${tokens.colors.line};border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:11px;background:rgba(255,253,248,.55)}
+.day b{font-family:${MONO};font-size:13px}.day i{width:6px;height:6px;border-radius:50%;background:${tokens.colors.signal};margin-top:5px}.day.active{border-color:${tokens.colors.ink};background:${tokens.colors.ink};color:${tokens.colors.surface}}.day.active i{background:${tokens.colors.acid}}
+.price-bars{height:96px;display:flex;align-items:flex-end;gap:10px;margin-top:18px;padding:0 4px}
+.price-bar{flex:1;border-radius:8px 8px 3px 3px;background:rgba(21,21,21,.12);position:relative}.price-bar.on{background:${tokens.colors.ink}}.price-bar span{position:absolute;left:50%;bottom:-22px;transform:translateX(-50%);font-family:${MONO};font-size:9px;color:${tokens.colors.muted}}
 `;
 
 function shell({ theme = 'paper', body }) {
@@ -77,6 +90,27 @@ const screens = [
       body: `<div class="body"><div class="kicker">03 · Confirm</div><h2 style="margin-top:9px">确认识别结果</h2><p style="margin-top:8px">每个字段都保留来源。你修改后，续费雷达会立即更新。</p><div class="card" style="margin-top:16px"><div class="row"><span>商户</span><b>CloudBox</b></div><div class="row"><span>金额</span><b class="mono">$12.99</b></div><div class="row"><span>周期</span><b>年付</b></div><div class="field warn" style="margin-top:12px"><span>下次续费日 · 低置信度</span><b class="mono">2026-10-20</b></div><div class="source" style="margin-top:8px">来源：CloudBox_Bill_2026.pdf</div></div><div class="card" style="margin-top:12px;background:rgba(200,244,90,.1)"><div class="row" style="border-bottom:0"><div><h3>Renew 判断</h3><p>金额较高，年付周期。建议加入雷达后观察。</p></div><span class="chip acid">保留</span></div></div><div class="btn" style="margin-top:18px">加入续费雷达</div><div class="btn ghost" style="margin-top:10px">修改字段</div></div><div class="nav"><div><b>⌂</b>首页</div><div><b>◷</b>日历</div><div><b>▤</b>订阅</div><div><b>↘</b>节省</div></div>`
     })
   }
-];
+  ,
+  {
+    id: '05-renewal-radar',
+    label: '续费雷达',
+    html: shell({
+      body: `<div class="body"><div class="kicker">Renewal Radar · 模拟数据</div><h2 style="margin-top:8px">未来 7 天<br>将扣 ¥186.00</h2><div class="radar"><div class="radar-ring"></div><div class="radar-ring two"></div><div class="radar-ring three"></div><div class="radar-center"><b>今天</b><span>10.02</span></div><div class="radar-node" style="left:228px;top:44px"></div><div class="radar-label" style="left:242px;top:28px">StreamMax ¥68</div><div class="radar-node yellow" style="left:56px;top:94px"></div><div class="radar-label" style="left:10px;top:72px">CloudBox $12.99</div><div class="radar-node gray" style="left:202px;top:216px"></div><div class="radar-label" style="left:220px;top:218px">Music+ 保留</div></div><div class="card"><div class="row"><div><h3>StreamMax</h3><p>10 月 18 日 · 月付</p></div><b class="mono">¥68.00</b></div><div class="row"><div><h3>CloudBox</h3><p>10 月 20 日 · 年付 · 需检查</p></div><b class="mono">$12.99</b></div></div><p class="source" style="margin-top:12px">节点位置和金额均为作品集模拟数据。</p></div><div class="nav"><div><b>⌂</b>首页</div><div><b>◷</b>日历</div><div><b>▤</b>订阅</div><div><b>↘</b>节省</div></div>`
+    })
+  },
+  {
+    id: '06-renewal-calendar',
+    label: '续费日历',
+    html: shell({
+      body: `<div class="body"><div class="kicker">Calendar · October</div><h2 style="margin-top:8px">续费日历</h2><p style="margin-top:8px">看到扣费节奏，也看到哪些日子会集中支出。</p><div class="calendar-grid"><div class="day"><span>一</span><b>5</b></div><div class="day"><span>二</span><b>6</b></div><div class="day active"><span>三</span><b>7</b><i></i></div><div class="day"><span>四</span><b>8</b></div><div class="day"><span>五</span><b>9</b></div><div class="day"><span>六</span><b>10</b></div><div class="day"><span>日</span><b>11</b></div><div class="day"><span>一</span><b>12</b></div><div class="day"><span>二</span><b>13</b></div><div class="day"><span>三</span><b>14</b></div><div class="day"><span>四</span><b>15</b></div><div class="day"><span>五</span><b>16</b></div><div class="day"><span>六</span><b>17</b></div><div class="day"><span>日</span><b>18</b><i></i></div></div><div class="card" style="margin-top:16px"><div class="row"><span>本月预计</span><b class="mono">¥486.00</b></div><div class="row"><span>高风险项目</span><b>2 个</b></div><div class="row"><span>待验证取消</span><b>1 个</b></div></div><p class="source" style="margin-top:12px">日历和金额为模拟数据。</p></div><div class="nav"><div><b>⌂</b>首页</div><div><b>◷</b>日历</div><div><b>▤</b>订阅</div><div><b>↘</b>节省</div></div>`
+    })
+  },
+  {
+    id: '07-subscription-detail',
+    label: '订阅详情',
+    html: shell({
+      body: `<div class="body"><div class="kicker">Subscription · CloudBox</div><div class="row" style="margin-top:10px;border-bottom:0;padding:0"><div><h2>CloudBox</h2><p>云存储 · 年付</p></div><span class="chip warn">需检查</span></div><div class="card" style="margin-top:16px"><span class="mini">下次续费</span><div class="amount" style="margin-top:6px">$12.99</div><p class="mono">2026-10-20 · 还有 18 天</p><div class="rule"></div><span class="mini">价格变化</span><div class="price-bars"><div class="price-bar" style="height:48%"><span>2023</span></div><div class="price-bar" style="height:58%"><span>2024</span></div><div class="price-bar on" style="height:84%"><span>2025</span></div><div class="price-bar on" style="height:100%"><span>2026</span></div></div></div><div class="card" style="margin-top:16px"><div class="row"><span>最近使用</span><b>62 天前</b></div><div class="row"><span>识别来源</span><b>PDF 账单</b></div><div class="row"><span>当前判断</span><b>建议观察</b></div></div><div class="grid-2" style="margin-top:16px"><div class="btn">取消订阅</div><div class="btn ghost">暂时保留</div></div><p class="source" style="margin-top:12px">使用记录和价格变化均为模拟数据。</p></div><div class="nav"><div><b>⌂</b>首页</div><div><b>◷</b>日历</div><div><b>▤</b>订阅</div><div><b>↘</b>节省</div></div>`
+    })
+  }];
 
 module.exports = { screens, shell, SCREEN_CSS };
