@@ -100,7 +100,7 @@ const screens = [
     id: '05-renewal-radar',
     label: '续费雷达',
     html: shell({
-      body: `<div class="body"><div class="kicker">Renewal Radar · 模拟数据</div><h2 style="margin-top:8px">未来 7 天<br>将扣 2 笔</h2><div class="radar"><div class="radar-ring"></div><div class="radar-ring two"></div><div class="radar-ring three"></div><div class="radar-center"><b>今天</b><span>10.02</span></div><div class="radar-node" style="left:228px;top:44px"></div><div class="radar-label" style="left:242px;top:28px">StreamMax ¥68</div><div class="radar-node yellow" style="left:56px;top:94px"></div><div class="radar-label" style="left:10px;top:72px">CloudBox $12.99</div><div class="radar-node gray" style="left:202px;top:216px"></div><div class="radar-label" style="left:220px;top:218px">Music+ 保留</div></div><div class="card"><div class="row"><div><h3>StreamMax</h3><p>10 月 05 日 · 月付</p></div><b class="mono">¥68.00</b></div><div class="row"><div><h3>CloudBox</h3><p>10 月 07 日 · 年付 · 需检查</p></div><b class="mono">$12.99</b></div></div><p class="source" style="margin-top:12px">节点位置和金额均为作品集模拟数据。</p></div><div class="nav"><div><b>⌂</b>首页</div><div><b>◷</b>日历</div><div><b>▤</b>订阅</div><div><b>↘</b>节省</div></div>`
+      body: `<div class="body"><div class="kicker">Renewal Radar · 模拟数据</div><h2 style="margin-top:8px">未来 30 天<br>将扣 2 笔</h2><div class="radar"><div class="radar-ring"></div><div class="radar-ring two"></div><div class="radar-ring three"></div><div class="radar-center"><b>今天</b><span>10.02</span></div><div class="radar-node" style="left:228px;top:44px"></div><div class="radar-label" style="left:242px;top:28px">StreamMax ¥68</div><div class="radar-node yellow" style="left:56px;top:94px"></div><div class="radar-label" style="left:10px;top:72px">CloudBox $12.99</div><div class="radar-node gray" style="left:202px;top:216px"></div><div class="radar-label" style="left:220px;top:218px">Music+ 保留</div></div><div class="card"><div class="row"><div><h3>StreamMax</h3><p>10 月 18 日 · 月付</p></div><b class="mono">¥68.00</b></div><div class="row"><div><h3>CloudBox</h3><p>10 月 20 日 · 年付 · 需检查</p></div><b class="mono">$12.99</b></div></div><p class="source" style="margin-top:12px">节点位置和金额均为作品集模拟数据。</p></div><div class="nav"><div><b>⌂</b>首页</div><div><b>◷</b>日历</div><div><b>▤</b>订阅</div><div><b>↘</b>节省</div></div>`
     })
   },
   {
@@ -141,3 +141,4 @@ const screens = [
 ];
 
 module.exports = { screens, shell, SCREEN_CSS };
+

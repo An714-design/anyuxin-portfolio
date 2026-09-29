@@ -16,8 +16,9 @@ test('contains the ten approved Renew screens in order', () => {
     '10-privacy-settings'
   ]);
   assert.match(screens[0].html, /把偷偷续费/);
-  assert.match(screens[4].html, /未来 7 天/);
+  assert.match(screens[4].html, /未来 30 天/);
   assert.match(screens[7].html, /取消前检查/);
   assert.match(screens[8].html, /预计节省/);
   assert.match(screens[9].html, /不保存完整邮件/);
 });
+
