@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>http://127.0.0.1:4173/</loc></url>
+  <url><loc>http://127.0.0.1:4173/work/</loc></url>
+  <url><loc>http://127.0.0.1:4173/thinking/</loc></url>
+  <url><loc>http://127.0.0.1:4173/aigc-process/</loc></url>
+  <url><loc>http://127.0.0.1:4173/about/</loc></url>
+  <url><loc>http://127.0.0.1:4173/resume/</loc></url>
+  <url><loc>http://127.0.0.1:4173/contact/</loc></url>
+  <url><loc>http://127.0.0.1:4173/projects/soundscape/</loc></url>
+  <url><loc>http://127.0.0.1:4173/projects/renew/</loc></url>
+  <url><loc>http://127.0.0.1:4173/projects/lightmap/</loc></url>
+  <url><loc>http://127.0.0.1:4173/projects/lumen/</loc></url>
+  <url><loc>http://127.0.0.1:4173/projects/flow/</loc></url>
+</urlset>
