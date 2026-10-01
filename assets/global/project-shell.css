@@ -1,0 +1,5 @@
+.project-dock { position: fixed; left: 50%; bottom: 18px; transform: translateX(-50%); z-index: 999; display: flex; align-items: center; gap: 10px; padding: 7px; border: 1px solid rgba(255,255,255,.18); border-radius: 999px; background: rgba(20,20,20,.82); color: #fff; box-shadow: 0 14px 40px rgba(0,0,0,.22); backdrop-filter: blur(18px); font: 12px/1 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif; }
+.project-dock a, .project-dock span { padding: 9px 13px; border-radius: 999px; white-space: nowrap; }
+.project-dock a:hover { background: rgba(255,255,255,.14); }
+.project-dock .current { max-width: 210px; overflow: hidden; text-overflow: ellipsis; color: rgba(255,255,255,.62); }
+@media (max-width: 620px) { .project-dock { bottom: 10px; max-width: calc(100% - 20px); } .project-dock .current { display: none; } }

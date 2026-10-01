@@ -8,7 +8,7 @@
     "domain": "空间音频 · 音乐体验",
     "cover": "assets/covers/soundscape.png",
     "capabilities": ["用户旅程", "信息架构", "视觉系统", "高保真 UI"],
-    "projectPath": "public/projects/soundscape/index.html",
+    "projectPath": "projects/soundscape/index.html",
     "accent": "#7e74a2"
   },
   {
@@ -20,7 +20,7 @@
     "domain": "订阅管理 · AI 决策辅助",
     "cover": "assets/covers/renew.png",
     "capabilities": ["产品逻辑", "信息架构", "AI 信任边界", "核心界面"],
-    "projectPath": "public/projects/renew/index.html",
+    "projectPath": "projects/renew/index.html",
     "accent": "#c8f45a"
   },
   {
@@ -32,7 +32,7 @@
     "domain": "沉浸式游戏 · 光影侦察",
     "cover": "assets/covers/lightmap.png",
     "capabilities": ["游戏化", "跨屏串联", "设计系统", "战术 UI"],
-    "projectPath": "public/projects/lightmap/index.html",
+    "projectPath": "projects/lightmap/index.html",
     "accent": "#e0a93e"
   },
   {
@@ -44,7 +44,7 @@
     "domain": "睡眠陪伴 · 情绪设计",
     "cover": "assets/covers/lumen.png",
     "capabilities": ["用户研究", "情绪设计", "AI 边界", "夜行叙事"],
-    "projectPath": "public/projects/lumen/index.html",
+    "projectPath": "projects/lumen/index.html",
     "accent": "#d8a15e"
   },
   {
@@ -56,7 +56,8 @@
     "domain": "效率工具 · Calm 生产力",
     "cover": "assets/covers/flow.png",
     "capabilities": ["Bento 系统", "信息架构", "动效", "完整流程"],
-    "projectPath": "public/projects/flow/index.html",
+    "projectPath": "projects/flow/index.html",
     "accent": "#8faf88"
   }
 ]
+
