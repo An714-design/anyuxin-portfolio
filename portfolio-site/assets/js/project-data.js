@@ -57,7 +57,7 @@ window.PORTFOLIO = {
         "视觉系统",
         "高保真 UI"
       ],
-      "projectPath": "public/projects/soundscape/index.html",
+      "projectPath": "projects/soundscape/index.html",
       "accent": "#7e74a2"
     },
     {
@@ -74,7 +74,7 @@ window.PORTFOLIO = {
         "AI 信任边界",
         "核心界面"
       ],
-      "projectPath": "public/projects/renew/index.html",
+      "projectPath": "projects/renew/index.html",
       "accent": "#c8f45a"
     },
     {
@@ -91,7 +91,7 @@ window.PORTFOLIO = {
         "设计系统",
         "战术 UI"
       ],
-      "projectPath": "public/projects/lightmap/index.html",
+      "projectPath": "projects/lightmap/index.html",
       "accent": "#e0a93e"
     },
     {
@@ -108,7 +108,7 @@ window.PORTFOLIO = {
         "AI 边界",
         "夜行叙事"
       ],
-      "projectPath": "public/projects/lumen/index.html",
+      "projectPath": "projects/lumen/index.html",
       "accent": "#d8a15e"
     },
     {
@@ -125,7 +125,7 @@ window.PORTFOLIO = {
         "动效",
         "完整流程"
       ],
-      "projectPath": "public/projects/flow/index.html",
+      "projectPath": "projects/flow/index.html",
       "accent": "#8faf88"
     }
   ],

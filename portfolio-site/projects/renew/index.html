@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>续费侦探 Renew · 订阅管理 App — UI/UX 作品集</title>
+<style>
+:root{
+  --paper:#F4F0E8;--surface:#FFFDF8;--ink:#151515;--signal:#FF5A36;--acid:#C8F45A;--warning:#F3B544;--muted:#8B877E;
+  --line:rgba(21,21,21,.14);--line-strong:rgba(21,21,21,.28);--r:20px;--ease:cubic-bezier(.22,.61,.36,1)
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;letter-spacing:.002em}
+img{display:block;max-width:100%;height:auto}a{color:inherit;text-decoration:none}
+nav{position:sticky;top:0;z-index:90;height:58px;background:rgba(244,240,232,.94);border-bottom:1px solid var(--line)}
+nav .in,.wrap{max-width:1220px;margin:0 auto;padding:0 32px}
+nav .in{height:100%;display:flex;align-items:center;justify-content:space-between}
+.brand{font-family:"Noto Serif SC","Songti SC",serif;font-size:17px}.brand b{color:var(--signal)}
+.links{display:flex;gap:22px;font-size:12px;color:var(--muted)}.links a:hover{color:var(--ink)}
+section{padding:104px 0;position:relative}.tight{padding:82px 0}.dark{background:var(--ink);color:var(--surface)}.dark p,.dark .lead{color:rgba(255,253,248,.68)}.surface{background:var(--surface)}
+.eyebrow{font-family:"SFMono-Regular","Cascadia Code",monospace;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--signal)}
+h1,h2,h3{font-family:"Noto Serif SC","Songti SC","STSong",serif;font-weight:500}
+h2{font-size:52px;line-height:1.08;letter-spacing:-.045em;margin-top:12px;max-width:900px}h3{font-size:20px;line-height:1.3;letter-spacing:-.02em}
+.lead{font-size:19px;line-height:1.62;color:rgba(21,21,21,.65);margin-top:18px;max-width:830px}.small{font-size:13px;color:var(--muted)}
+.block{margin-top:44px}.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:24px}.dark .card{background:rgba(255,253,248,.055);border-color:rgba(255,253,248,.14)}
+.card p{font-size:14px;color:rgba(21,21,21,.64);margin-top:8px}.dark .card p{color:rgba(255,253,248,.66)}
+.tag{display:inline-flex;align-items:center;min-height:28px;padding:0 10px;border-radius:999px;background:rgba(255,90,54,.12);color:#B83A22;font-size:11px;font-weight:700}.tag.acid{background:rgba(200,244,90,.22);color:#465B00}.tag.warn{background:rgba(243,181,68,.18);color:#7A5200}
+.hero{background:var(--ink);color:var(--surface);padding:0;border-bottom:1px solid rgba(255,253,248,.12)}
+.hero .copy{padding-top:96px;display:grid;grid-template-columns:1.08fr .92fr;gap:48px;align-items:end}
+.hero h1{font-size:102px;line-height:.88;letter-spacing:-.07em}.hero h1 span{display:block;color:var(--acid);font-size:58px;margin-top:12px;letter-spacing:-.04em}.hero .lead{max-width:650px}
+.hero .meta{display:flex;gap:9px;flex-wrap:wrap;margin-top:28px}.hero .meta span{border:1px solid rgba(255,253,248,.22);border-radius:999px;padding:8px 12px;font-size:11px;color:rgba(255,253,248,.72)}
+.hero .visual{margin-top:54px;border-top:1px solid rgba(255,253,248,.14);padding:34px 0 48px}.hero .visual img{border:1px solid rgba(255,253,248,.18);border-radius:24px}
+.screens{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}.screen-card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:10px}.screen-card img{border:1px solid var(--line);border-radius:13px}.screen-card .label{padding:11px 3px 3px;font-size:12px;color:var(--muted)}.screen-card b{font-family:"SFMono-Regular","Cascadia Code",monospace;color:var(--signal);margin-right:6px}
+.fig{background:var(--surface);border:1px solid var(--line);border-radius:24px;overflow:hidden}.fig img{width:100%}.fig figcaption{border-top:1px solid var(--line);padding:14px 18px;font-size:12px;color:var(--muted)}
+.flowline{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.step{border:1px solid var(--line);border-radius:16px;padding:16px;background:var(--surface);min-height:118px}.step b{display:block;font-size:15px}.step span{display:block;font-size:12px;color:var(--muted);margin-top:7px}
+.stack{display:grid;gap:12px}.stack-row{display:grid;grid-template-columns:150px 1fr auto;gap:18px;align-items:start;border-bottom:1px solid var(--line);padding:18px 0}.stack-row:last-child{border-bottom:0}.stack-row b{font-family:"SFMono-Regular","Cascadia Code",monospace;font-size:12px;color:var(--muted)}
+.risk{border:1px solid var(--line);border-radius:18px;padding:20px;background:var(--surface)}.risk.high{border-color:var(--signal)}.risk.mid{border-color:var(--warning)}.risk.low{border-color:var(--acid)}.risk h3{margin-top:14px}.risk p{font-size:13px;color:var(--muted);margin-top:8px}
+.swatches{display:grid;grid-template-columns:repeat(7,1fr);gap:10px}.swatch{height:78px;border:1px solid var(--line);border-radius:14px;display:flex;align-items:flex-end;padding:10px;font-family:"SFMono-Regular","Cascadia Code",monospace;font-size:10px}.swatch.light{color:var(--ink)}
+.metrics .stack-row{grid-template-columns:260px 1fr}.quality-box{border:1px solid var(--signal);border-radius:22px;padding:26px;background:rgba(255,90,54,.06)}
+footer{padding:30px 0;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+@media(max-width:1000px){.hero h1{font-size:78px}.screens{grid-template-columns:repeat(3,1fr)}.grid-4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:680px){nav .links{display:none}.wrap,nav .in{padding:0 20px}h2{font-size:36px}.lead{font-size:17px}.hero .copy{grid-template-columns:1fr;padding-top:64px}.hero h1{font-size:58px}.hero h1 span{font-size:38px}.screens{grid-template-columns:1fr 1fr;gap:12px}.grid-2,.grid-3,.grid-4,.flowline{grid-template-columns:1fr}.swatches{grid-template-columns:1fr 1fr}.stack-row,.metrics .stack-row{grid-template-columns:1fr;gap:5px}.screen-card{padding:7px}}
+</style>
+  <link rel="stylesheet" href="../../assets/global/project-shell.css">
+</head>
+<body data-project="renew" data-project-title="续费侦探 Renew" data-next-href="../lightmap/">
+<nav><div class="in"><div class="brand">续费侦探 <b>Renew</b></div><div class="links"><a href="#thesis">产品逻辑</a><a href="#screens">关键界面</a><a href="#trust">信任边界</a><a href="#system">视觉系统</a></div></div></nav>
+
+<header id="hero" class="hero">
+  <div class="wrap">
+    <div class="copy">
+      <div><div class="eyebrow">UI/UX Case Study · 2026</div><h1>续费侦探<span>Renew</span></h1></div>
+      <div><p class="lead">把分散在账单、邮件和截图里的订阅，整理成一张可读、可信、可行动的续费地图。</p><div class="meta"><span>订阅识别</span><span>续费雷达</span><span>取消助手</span><span>模拟数据</span></div></div>
+    </div>
+    <div class="visual"><img src="kv/key-visual.png" alt="续费侦探 Renew 项目主视觉，中央是续费雷达和品牌标题"></div>
+  </div>
+</header>
+
+<section id="thesis">
+  <div class="wrap">
+    <div class="eyebrow">01 · 机会</div><h2>订阅不是一笔支出，而是一组会自己回来的决定。</h2>
+    <p class="lead">用户的问题不是不会记账，而是不知道下周会扣什么、哪些订阅已经失去价值，以及取消要从哪里开始。</p>
+    <div class="grid-3 block">
+      <article class="card"><span class="tag">看不见</span><h3 style="margin-top:12px">续费日期分散</h3><p>邮件、应用内通知和支付记录彼此分离，用户缺少统一视图。</p></article>
+      <article class="card"><span class="tag warn">来不及</span><h3 style="margin-top:12px">提醒发生得太晚</h3><p>免费试用和年度订阅常在用户想起之前完成扣费。</p></article>
+      <article class="card"><span class="tag acid">难行动</span><h3 style="margin-top:12px">取消路径不透明</h3><p>识别出问题只是第一步，真正困难的是确认剩余权益并完成取消。</p></article>
+    </div>
+    <div class="grid-2 block">
+      <article class="card"><span class="tag">主 Persona</span><h3 style="margin-top:12px">林知夏 · 27 岁 · 互联网运营</h3><p>同时拥有 8～12 个订阅。会为了免费试用先开通服务，月底才发现扣费；不想做复杂预算，只想让订阅和续费变得透明。</p></article>
+      <article class="card"><span class="tag acid">竞品间隙</span><h3 style="margin-top:12px">从记录历史，走向处理决定</h3><p>记账工具解释过去，提醒工具只发通知。Renew 把识别、风险解释和取消行动放在同一条路径里。</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="screens" class="surface">
+  <div class="wrap">
+    <div class="eyebrow">02 · 关键界面</div><h2>十个界面，覆盖识别、判断和行动。</h2>
+    <p class="lead">所有订阅名称、金额和日期均为模拟数据，用于展示产品逻辑和视觉系统。</p>
+    <div class="screens block">
+      <div class="screen-card"><img src="screens/01-onboarding.png" alt="Onboarding：把偷偷续费变成看得见的支出"><div class="label"><b>01</b>把续费变透明</div></div>
+      <div class="screen-card"><img src="screens/02-import-center.png" alt="导入中心：上传账单截图、邮件或手动添加"><div class="label"><b>02</b>导入一条线索</div></div>
+      <div class="screen-card"><img src="screens/03-detection-queue.png" alt="识别队列：高置信度和低置信度线索"><div class="label"><b>03</b>识别队列</div></div>
+      <div class="screen-card"><img src="screens/04-confirmation-editor.png" alt="确认识别结果：修改低置信度字段"><div class="label"><b>04</b>确认识别结果</div></div>
+      <div class="screen-card"><img src="screens/05-renewal-radar.png" alt="续费雷达：未来七天扣费节点和风险分级"><div class="label"><b>05</b>续费雷达</div></div>
+      <div class="screen-card"><img src="screens/06-renewal-calendar.png" alt="续费日历：按周月年查看扣费节奏"><div class="label"><b>06</b>续费日历</div></div>
+      <div class="screen-card"><img src="screens/07-subscription-detail.png" alt="订阅详情：价格变化、使用记录和取消入口"><div class="label"><b>07</b>订阅详情</div></div>
+      <div class="screen-card"><img src="screens/08-cancel-assistant.png" alt="取消助手：检查、操作、确认和保存凭证"><div class="label"><b>08</b>取消助手</div></div>
+      <div class="screen-card"><img src="screens/09-savings-report.png" alt="节省报告：已取消项目和下一次验证"><div class="label"><b>09</b>节省报告</div></div>
+      <div class="screen-card"><img src="screens/10-privacy-settings.png" alt="隐私与设置：不保存完整邮件和演示数据声明"><div class="label"><b>10</b>隐私与设置</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="detection">
+  <div class="wrap">
+    <div class="eyebrow">03 · 识别流程</div><h2>AI 负责识别，用户负责确认。</h2>
+    <p class="lead">Renew 不把 OCR 结果直接变成扣费事实。每个字段都保留来源，低置信度信息必须经过用户检查。</p>
+    <figure class="fig block"><img src="diagrams/detection-flow.png" alt="从线索到决定的流程图：导入、解析、确认、雷达、风险、行动和验证"><figcaption>识别流程将自动能力限制在建议层，避免错误信息直接进入用户的财务视图</figcaption></figure>
+    <figure class="fig block"><img src="diagrams/information-architecture.png" alt="信息架构图：线索、订阅库、续费雷达、风险和行动五个层级"><figcaption>信息架构把分散的线索收拢为「线索 → 订阅库 → 雷达 → 行动」的单向结构，每一步都有明确的输入和输出</figcaption></figure>
+    <div class="flowline block">
+      <div class="step"><b>01 导入</b><span>账单、邮件、PDF 或截图</span></div>
+      <div class="step"><b>02 解析</b><span>商户、金额、周期、日期</span></div>
+      <div class="step"><b>03 确认</b><span>低置信度字段由用户修正</span></div>
+      <div class="step"><b>04 归档</b><span>加入订阅库和模型</span></div>
+      <div class="step"><b>05 行动</b><span>保留、暂停、降级或取消</span></div>
+    </div>
+    <figure class="fig block"><img src="motion/scan-detect.png" alt="扫描识别动效海报：扫描线在账单截图和解析字段之间移动"><figcaption>扫描识别动效只表达“系统在解析”，不替代用户对低置信度字段的确认</figcaption></figure>
+  </div>
+</section>
+
+<section id="radar" class="dark">
+  <div class="wrap">
+    <div class="eyebrow">04 · 续费雷达</div><h2>用一张图回答：我最近会被扣什么钱？</h2>
+    <p class="lead">中心是今天，轨道按时间展开。高、中、低风险帮助用户安排处理顺序，而不是制造焦虑。</p>
+    <div class="grid-2 block">
+      <figure class="fig"><img src="motion/radar-orbit.png" alt="续费雷达动效海报：订阅节点围绕今天旋转"><figcaption>轨道动效仅用于展示时间关系，不影响阅读</figcaption></figure>
+      <div class="stack">
+        <div class="risk high"><span class="tag">高风险</span><h3>7 天内高风险</h3><p>金额较高、使用频率低或刚刚涨价，进入首页最高优先级。</p></div>
+        <div class="risk mid"><span class="tag warn">中风险</span><h3>30 天内需关注</h3><p>显示在日历内圈，用户可以选择延后提醒。</p></div>
+        <div class="risk low"><span class="tag acid">低风险</span><h3>已处理或暂停</h3><p>不继续打扰，保留来源，并在续费日再次验证。</p></div>
+      </div>
+    </div>
+    <figure class="fig block"><img src="diagrams/risk-model.png" alt="风险模型图：金额、使用频率和价格变化共同决定高、中、低风险"><figcaption>风险模型用金额、使用频率和价格变化三个维度解释风险等级，帮助用户安排处理顺序</figcaption></figure>
+  </div>
+</section>
+
+<section id="cancellation" class="surface">
+  <div class="wrap">
+    <div class="eyebrow">05 · 取消助手</div><h2>取消不是一次按钮点击。</h2>
+    <p class="lead">把取消拆成准备、操作、确认和验证四个阶段，让用户知道自己在哪一步，也知道什么时候算真正完成。</p>
+    <figure class="fig block"><img src="diagrams/cancellation-flow.png" alt="取消流程图：检查权益、导出内容、打开入口、执行取消、保存凭证、等待生效和再次验证"><figcaption>成功定义是用户完成明确决策，而不是被产品说服继续付费</figcaption></figure>
+    <div class="grid-4 block">
+      <article class="card"><span class="tag">准备</span><h3 style="margin-top:12px">检查剩余权益</h3><p>确认取消后还能使用到哪一天，是否需要先导出内容。</p></article>
+      <article class="card"><span class="tag">操作</span><h3 style="margin-top:12px">找到取消入口</h3><p>提供路径说明、客服话术和取消注意事项。</p></article>
+      <article class="card"><span class="tag acid">确认</span><h3 style="margin-top:12px">保存取消凭证</h3><p>记录确认编号、邮件或截图，避免模糊状态。</p></article>
+      <article class="card"><span class="tag warn">验证</span><h3 style="margin-top:12px">续费日再次检查</h3><p>如果没有扣费，写入节省报告；如果仍然扣费，提醒再次处理。</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="trust">
+  <div class="wrap">
+    <div class="eyebrow">06 · 信任边界</div><h2>识别能力越强，边界越要说清楚。</h2>
+    <p class="lead">作品集版本不碰真实支付和隐私数据。产品设计必须让用户知道信息从哪里来、会被保存什么、以及如何撤回。</p>
+    <figure class="fig block"><img src="diagrams/trust-boundary.png" alt="信任边界图：可解释、可修改、可撤回和作品集模拟数据声明"><figcaption>Renew 的原则是：可解释、可修改、可撤回</figcaption></figure>
+    <div class="grid-3 block">
+      <article class="card"><h3>不接入银行卡密码</h3><p>演示版本不连接真实支付账户，也不保存支付凭证。</p></article>
+      <article class="card"><h3>不保存完整邮件</h3><p>只保留识别所需的字段，并显示每个字段的来源。</p></article>
+      <article class="card"><h3>不自动取消</h3><p>用户始终执行最后动作，系统只提供步骤、模板和检查清单。</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="system" class="surface">
+  <div class="wrap">
+    <div class="eyebrow">07 · 视觉系统</div><h2>编辑感金融 × 侦探线索板。</h2>
+    <p class="lead">用纸张底色、墨黑文字、信号橙和酸绿色建立识别度，避免传统银行 App 的蓝色渐变和信息表格。</p>
+    <div class="swatches block">
+      <div class="swatch" style="background:#F4F0E8;color:#151515"><span>#F4F0E8<br>Paper</span></div>
+      <div class="swatch" style="background:#151515"><span>#151515<br>Ink</span></div>
+      <div class="swatch" style="background:#FF5A36"><span>#FF5A36<br>Signal</span></div>
+      <div class="swatch" style="background:#C8F45A;color:#151515"><span>#C8F45A<br>Acid</span></div>
+      <div class="swatch" style="background:#F3B544;color:#151515"><span>#F3B544<br>Warning</span></div>
+      <div class="swatch" style="background:#8B877E"><span>#8B877E<br>Muted</span></div>
+      <div class="swatch" style="background:#FFFDF8;color:#151515"><span>#FFFDF8<br>Surface</span></div>
+    </div>
+    <div class="grid-3 block">
+      <article class="card"><h3>字体</h3><p>衬线标题负责杂志感，无衬线正文负责可读性，等宽字体用于金额、日期和置信度。</p></article>
+      <article class="card"><h3>卡片</h3><p>12–20px 圆角、1px 描边和克制层级。一个页面最多一个主要行动按钮。</p></article>
+      <article class="card"><h3>动效</h3><p>轨道旋转、扫描线和风险节点脉冲都保持低幅度，并支持减少动态效果。</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="metrics" class="metrics">
+  <div class="wrap">
+    <div class="eyebrow">08 · 成功指标</div><h2>不要只展示“识别了多少”，要展示“完成了什么决定”。</h2>
+    <p class="lead">作品集不展示虚假测试数据，只展示产品定义的成功指标和执行边界。</p>
+    <div class="stack block">
+      <div class="stack-row"><b>北极星</b><div><h3>有效续费决策数</h3><p>用户在收到提醒后完成保留、暂停、降级或取消中的明确选择。</p></div></div>
+      <div class="stack-row"><b>识别质量</b><div><h3>识别成功率与修正率</h3><p>既要看能否提取字段，也要看用户需要修改多少信息。</p></div></div>
+      <div class="stack-row"><b>提醒质量</b><div><h3>从提醒到决策的完成率</h3><p>提醒是否帮助用户行动，而不是制造更多待办。</p></div></div>
+      <div class="stack-row"><b>取消闭环</b><div><h3>取消完成率与再次扣费率</h3><p>不仅记录用户点击了取消，还要验证后续是否真的停止扣费。</p></div></div>
+      <div class="stack-row"><b>信任</b><div><h3>识别结果被修正、删除或撤回的比例</h3><p>用户是否理解自动识别的不确定性，并能控制最终结果。</p></div></div>
+    </div>
+    <div class="grid-3 block">
+      <article class="card"><span class="tag">免费版</span><h3 style="margin-top:12px">手动添加与基础提醒</h3><p>适合少量订阅，保留基础续费和试用提醒。</p></article>
+      <article class="card"><span class="tag acid">Pro 版</span><h3 style="margin-top:12px">批量识别与取消助手</h3><p>提供批量识别、价格变化历史、取消模板和节省报告。</p></article>
+      <article class="card"><span class="tag warn">排序原则</span><h3 style="margin-top:12px">不因佣金改变结果</h3><p>订阅排序只依据用户数据、风险和偏好，不依据商业合作。</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="quality" class="surface">
+  <div class="wrap">
+    <div class="eyebrow">09 · 作品集边界</div><h2>这是一个产品概念和界面案例，不是金融工具。</h2>
+    <div class="quality-box block"><p><strong>作品集声明：</strong>本案例不接入真实邮箱、OCR 服务、支付平台、银行账户或取消接口。所有订阅、金额和日期均为模拟数据。Renew 不提供金融建议，也不自动执行支付、退款或取消操作。</p></div>
+    <div class="grid-3 block">
+      <article class="card"><h3>展示重点</h3><p>用户研究、产品边界、信息架构、复杂流程、数据可视化、视觉系统和信任设计。</p></article>
+      <article class="card"><h3>可扩展方向</h3><p>家庭订阅共享、跨账号视图、价格变化历史和取消话术模板。</p></article>
+      <article class="card"><h3>交付形式</h3><p>静态响应式案例页、十张手机界面、五张流程图、两张动效海报、一张主视觉和可复现的本地生成脚本。</p></article>
+    </div>
+    <div class="grid-4 block">
+      <article class="card"><h3>重复线索</h3><p>同一订阅出现多条账单时，允许合并或忽略，不重复进入雷达。</p></article>
+      <article class="card"><h3>多币种</h3><p>币种不明确时高亮字段，避免把美元金额直接当成人民币。</p></article>
+      <article class="card"><h3>家庭共享</h3><p>账号使用人和付款人可能不同，详情页必须允许备注实际支付者。</p></article>
+      <article class="card"><h3>取消后仍扣费</h3><p>保留取消凭证，并在续费日附近提醒用户再次验证。</p></article>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap">续费侦探 Renew · UI/UX Portfolio · Simulation only · 2026</div></footer>
+  <script src="../../assets/js/project-shell.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>声场 Soundscape · 空间音频音乐 App | UI/UX 设计作品集 · YUAN</title>
+<style>
+  :root{
+    --bg:#F3F2F8;
+    --surface:#FFFFFF;
+    --ink:#211F29;
+    --ink-2:#5C5A66;
+    --ink-3:#8C8C99;
+    --line:#E4E2EE;
+    --cyan:#5E9AA8;
+    --purple:#7E74A2;
+    --rose:#B08696;
+    --teal:#52808C;
+    --shadow:0 10px 30px rgba(33,31,41,.07);
+    --shadow-lg:0 24px 60px rgba(33,31,41,.12);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Sarasa Gothic SC",sans-serif;
+    line-height:1.7;-webkit-font-smoothing:antialiased;
+  }
+  img{display:block;max-width:100%}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+
+  /* ---------- nav ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(243,242,248,.82);backdrop-filter:blur(14px);
+    border-bottom:1px solid transparent;transition:border-color .3s,box-shadow .3s;
+  }
+  nav.scrolled{border-bottom-color:var(--line);box-shadow:0 2px 14px rgba(33,31,41,.05)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .brand{font-weight:700;font-size:17px;letter-spacing:.02em}
+  .brand span{color:var(--ink-3);font-weight:400;font-size:13px;margin-left:10px}
+  .nav-links{display:flex;gap:30px;list-style:none}
+  .nav-links a{color:var(--ink-2);text-decoration:none;font-size:14px;transition:color .2s}
+  .nav-links a:hover{color:var(--teal)}
+
+  /* ---------- hero ---------- */
+  header{padding:80px 0 40px;text-align:center}
+  .eyebrow{color:var(--teal);font-size:13px;letter-spacing:.22em;font-weight:600;margin-bottom:18px}
+  h1{font-size:clamp(38px,6.2vw,72px);line-height:1.15;letter-spacing:-.02em;margin-bottom:20px}
+  .lede{max-width:660px;margin:0 auto;color:var(--ink-2);font-size:clamp(16px,2vw,20px)}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:32px}
+  .chip{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:7px 16px;font-size:13px;color:var(--ink-2)}
+  .cover-shot{
+    margin:56px auto 0;max-width:640px;border-radius:24px;overflow:hidden;
+    box-shadow:var(--shadow-lg);background:var(--surface);
+  }
+
+  /* ---------- sections ---------- */
+  section{padding:92px 0}
+  .sec-head{margin-bottom:44px;max-width:720px}
+  .sec-num{color:var(--ink-3);font-size:13px;letter-spacing:.2em;font-weight:600;margin-bottom:12px}
+  h2{font-size:clamp(28px,4vw,42px);line-height:1.25;letter-spacing:-.01em;margin-bottom:14px}
+  .sec-sub{color:var(--ink-2);font-size:17px}
+
+  .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .card{background:var(--surface);border-radius:20px;padding:30px;box-shadow:var(--shadow)}
+  .card h3{font-size:20px;margin-bottom:12px}
+  .card p{color:var(--ink-2);font-size:15.5px}
+  .card .tag{display:block;font-size:13px;font-weight:600;color:var(--teal);margin-bottom:10px;letter-spacing:.04em}
+
+  .principle{background:var(--surface);border-radius:20px;padding:26px;box-shadow:var(--shadow)}
+  .bar{width:40px;height:4px;border-radius:2px;margin-bottom:16px}
+  .principle h4{font-size:18px;margin-bottom:8px}
+  .principle p{color:var(--ink-2);font-size:15px}
+
+  /* ---------- screens ---------- */
+  .phones{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+  .phone{text-align:center}
+  .phone img{
+    width:100%;max-width:270px;margin:0 auto;border-radius:30px;
+    box-shadow:var(--shadow-lg);transition:transform .35s ease,box-shadow .35s ease;
+  }
+  .phone:hover img{transform:translateY(-8px);box-shadow:0 30px 70px rgba(33,31,41,.18)}
+  .phone figcaption{margin-top:16px;font-size:15px;font-weight:600}
+  .phone small{display:block;color:var(--ink-3);font-size:13px;margin-top:3px}
+
+  /* ---------- wide shots ---------- */
+  .shot{
+    background:var(--surface);border-radius:24px;overflow:hidden;
+    box-shadow:var(--shadow-lg);
+  }
+  .shot img{width:100%}
+  .shot-cap{margin-top:18px;color:var(--ink-3);font-size:14px;text-align:center}
+
+  /* ---------- highlights ---------- */
+  .hl{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+  .hl-card{background:var(--surface);border-radius:20px;padding:32px;box-shadow:var(--shadow)}
+  .hl-num{font-size:44px;font-weight:600;line-height:1;margin-bottom:14px}
+  .hl-card h3{font-size:22px;margin-bottom:10px}
+  .hl-card p{color:var(--ink-2);font-size:15.5px}
+
+  /* ---------- footer ---------- */
+  footer{padding:96px 0 72px;text-align:center;border-top:1px solid var(--line);margin-top:40px}
+  .thanks{font-size:clamp(32px,5vw,56px);font-weight:700;letter-spacing:-.01em}
+  .thanks-en{color:var(--ink-2);font-size:19px;margin-top:10px}
+  .divider{width:180px;height:2px;background:var(--line);margin:34px auto}
+  .foot-meta{color:var(--ink-2);font-size:16px}
+  .foot-meta + .foot-meta{margin-top:6px;color:var(--ink-3);font-size:15px}
+
+  /* ---------- reveal ---------- */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---------- lightbox ---------- */
+  .lb{position:fixed;inset:0;background:rgba(20,19,26,.9);display:none;align-items:center;justify-content:center;z-index:100;padding:40px;cursor:zoom-out}
+  .lb.open{display:flex}
+  .lb img{max-width:100%;max-height:100%;border-radius:12px;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+  .zoomable{cursor:zoom-in}
+
+  @media (max-width:900px){
+    .grid-2,.hl{grid-template-columns:1fr}
+    .grid-3{grid-template-columns:1fr}
+    .phones{grid-template-columns:repeat(2,1fr);gap:24px}
+    section{padding:64px 0}
+    .nav-links{display:none}
+  }
+  @media (max-width:560px){
+    .phones{grid-template-columns:1fr}
+  }
+</style>
+  <link rel="stylesheet" href="../../assets/global/project-shell.css">
+</head>
+<body data-project="soundscape" data-project-title="声场 Soundscape" data-next-href="../renew/">
+
+<nav id="nav">
+  <div class="wrap nav-in">
+    <div class="brand">声场 Soundscape<span>UI/UX 设计作品集</span></div>
+    <ul class="nav-links">
+      <li><a href="#overview">项目概述</a></li>
+      <li><a href="#screens">界面设计</a></li>
+      <li><a href="#thinking">设计思维</a></li>
+      <li><a href="#process">设计过程</a></li>
+      <li><a href="#highlights">设计亮点</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap">
+    <div class="eyebrow">SPATIAL AUDIO MUSIC APP · UI / UX CASE STUDY</div>
+    <h1>让空间音频<br>成为看得见的界面语言</h1>
+    <p class="lede">「声场 Soundscape」是一个为空间音频而生的音乐播放 App。我把抽象的声音方位与临场感，翻译成可看、可懂、可操作的界面。</p>
+    <div class="hero-meta">
+      <span class="chip">独立完成 · 全流程</span>
+      <span class="chip">6 周 · 3 轮迭代</span>
+      <span class="chip">9 张高保真界面</span>
+      <span class="chip">Figma · 手绘 · AIGC</span>
+    </div>
+    <div class="cover-shot reveal">
+      <img src="images/4_384.png" alt="作品集封面 · 声场 Soundscape">
+    </div>
+  </div>
+</header>
+
+<!-- ---------- overview ---------- -->
+<section id="overview">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-num">01 — PROJECT BRIEF</div>
+      <h2>项目概述</h2>
+      <p class="sec-sub">为什么做、做成什么样、我负责什么。</p>
+    </div>
+    <div class="grid-2">
+      <div class="card reveal">
+        <span class="tag">项目背景 · Background</span>
+        <h3>空间音频缺少「界面语言」</h3>
+        <p>空间音频正在成为移动端听歌的新常态，但主流音乐 App 仍以二维歌单组织内容，用户难以感知声音的空间位置与临场感。</p>
+      </div>
+      <div class="card reveal">
+        <span class="tag">设计目标 · Goals</span>
+        <h3>把空间感变成可操作的语言</h3>
+        <p>让「空间感」成为可看见、可操作的界面语言；降低空间音频的发现与理解成本；建立一套可复用的低饱和渐变色彩系统。</p>
+      </div>
+      <div class="card reveal">
+        <span class="tag">我的角色 · Role</span>
+        <h3>独立完成全流程</h3>
+        <p>用户研究、信息架构、交互流程、视觉系统、高保真界面与原型，并产出用户旅程图与手绘过程稿。</p>
+      </div>
+      <div class="card reveal">
+        <span class="tag">设计周期 · Timeline</span>
+        <h3>6 周 · 3 轮迭代</h3>
+        <p>研究洞察 → 手绘草图 → 低保真线框 → 用户验证 → 高保真界面 → 设计系统沉淀。</p>
+      </div>
+    </div>
+
+    <h3 style="margin:56px 0 22px;font-size:22px">设计原则 · Design Principles</h3>
+    <div class="grid-3">
+      <div class="principle reveal">
+        <div class="bar" style="background:var(--cyan)"></div>
+        <h4>空间可见</h4>
+        <p>把声音的方位与距离画出来，让抽象的音频可被感知。</p>
+      </div>
+      <div class="principle reveal">
+        <div class="bar" style="background:var(--purple)"></div>
+        <h4>低饱和克制</h4>
+        <p>统一降饱和，配合浅底，长时间聆听也不刺眼。</p>
+      </div>
+      <div class="principle reveal">
+        <div class="bar" style="background:var(--rose)"></div>
+        <h4>场景驱动</h4>
+        <p>按通勤 / 运动 / 睡前等真实情境组织内容，降低决策成本。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ---------- screens ---------- -->
+<section id="screens">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-num">02 — UI DESIGN</div>
+      <h2>界面设计</h2>
+      <p class="sec-sub">6 张高保真界面，覆盖播放、浏览、发现与沉浸可视化。</p>
+    </div>
+    <div class="phones">
+      <figure class="phone reveal">
+        <img class="zoomable" src="images/4_461.png" alt="首页「现在就听」">
+        <figcaption>首页「现在就听」<small>Home · Listen Now</small></figcaption>
+      </figure>
+      <figure class="phone reveal">
+        <img class="zoomable" src="images/4_408.png" alt="正在播放">
+        <figcaption>正在播放<small>Now Playing</small></figcaption>
+      </figure>
+      <figure class="phone reveal">
+        <img class="zoomable" src="images/4_536.png" alt="发现「空间电台」">
+        <figcaption>发现「空间电台」<small>Discover · Spatial Radio</small></figcaption>
+      </figure>
+      <figure class="phone reveal">
+        <img class="zoomable" src="images/4_679.png" alt="歌单详情">
+        <figcaption>歌单详情<small>Playlist Detail</small></figcaption>
+      </figure>
+      <figure class="phone reveal">
+        <img class="zoomable" src="images/4_753.png" alt="空间音频沉浸可视化">
+        <figcaption>沉浸可视化<small>Spatial Audio Immersive</small></figcaption>
+      </figure>
+      <figure class="phone reveal">
+        <img class="zoomable" src="images/4_823.png" alt="我的">
+        <figcaption>我的<small>Profile</small></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ---------- design thinking ---------- -->
+<section id="thinking">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-num">03 — DESIGN THINKING</div>
+      <h2>用户旅程图</h2>
+      <p class="sec-sub">拆解通勤、运动、睡前三大真实场景，定位情绪起伏与机会点。</p>
+    </div>
+    <div class="shot reveal">
+      <img class="zoomable" src="images/4_607.png" alt="用户旅程图">
+    </div>
+    <p class="shot-cap">三张场景卡 + 全场景情绪曲线汇总</p>
+  </div>
+</section>
+
+<!-- ---------- process ---------- -->
+<section id="process">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-num">04 — PROCESS</div>
+      <h2>设计过程</h2>
+      <p class="sec-sub">从信息架构探索到 10 张手绘低保真线框，保留完整的发散与收敛轨迹。</p>
+    </div>
+    <div class="shot reveal">
+      <img class="zoomable" src="images/4_897.png" alt="设计过程手绘板">
+    </div>
+    <p class="shot-cap">手绘 IA 探索 + 图标组 + 10 张低保真手机线框</p>
+  </div>
+</section>
+
+<!-- ---------- highlights ---------- -->
+<section id="highlights">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-num">05 — HIGHLIGHTS</div>
+      <h2>设计亮点</h2>
+      <p class="sec-sub">四个让「声场」真正成立的决策点。</p>
+    </div>
+    <div class="hl">
+      <div class="hl-card reveal">
+        <div class="hl-num" style="color:var(--cyan)">01</div>
+        <h3>空间音频可视化</h3>
+        <p>把声音方位画成同心波场与波形条，让抽象的 spatial audio 变成可看、可懂的界面语言。</p>
+      </div>
+      <div class="hl-card reveal">
+        <div class="hl-num" style="color:var(--purple)">02</div>
+        <h3>低饱和渐变色彩系统</h3>
+        <p>紫 / 青 / 粉三色统一降饱和，配合 #F3F2F8 浅底，既有沉浸感又不刺眼，长时间聆听更舒适。</p>
+      </div>
+      <div class="hl-card reveal">
+        <div class="hl-num" style="color:var(--rose)">03</div>
+        <h3>场景化电台推荐</h3>
+        <p>按通勤 / 运动 / 睡前等真实情境组织内容，减少决策成本，让推荐贴合当下状态。</p>
+      </div>
+      <div class="hl-card reveal">
+        <div class="hl-num" style="color:var(--teal)">04</div>
+        <h3>深浅双主题适配</h3>
+        <p>同一套信息架构与组件，同时验证深色沉浸与浅色清爽两种呈现，保证视觉一致性。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="thanks reveal">谢谢观看</div>
+    <div class="thanks-en reveal">Thank you for your time</div>
+    <div class="divider reveal"></div>
+    <div class="foot-meta reveal">声场 Soundscape · 空间音频音乐 App</div>
+    <div class="foot-meta reveal">UI / UX 设计 · 交互原型 · 设计系统</div>
+    <div class="foot-meta reveal">设计师 YUAN · 2026</div>
+  </div>
+</footer>
+
+<div class="lb" id="lb"><img id="lbimg" src="" alt=""></div>
+
+<script>
+  // nav shadow on scroll
+  const nav = document.getElementById('nav');
+  addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 12));
+
+  // reveal on scroll
+  const io = new IntersectionObserver((es) => {
+    es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: .12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // lightbox
+  const lb = document.getElementById('lb'), lbimg = document.getElementById('lbimg');
+  document.querySelectorAll('img.zoomable').forEach(img => {
+    img.addEventListener('click', () => { lbimg.src = img.src; lb.classList.add('open'); });
+  });
+  lb.addEventListener('click', () => lb.classList.remove('open'));
+  addEventListener('keydown', e => { if (e.key === 'Escape') lb.classList.remove('open'); });
+</script>
+  <script src="../../assets/js/project-shell.js" defer></script>
+</body>
+</html>
