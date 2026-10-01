@@ -90,6 +90,9 @@ function patchIndex(slug, file) {
     html = html.replace(/href="[^"]*index\.html#([^"#]+)"/g, 'href="#$1"');
   }
 
+  html = html.replace(/<img id="lbi" src="" alt="">/g, '<img id="lbi" src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="项目图片预览">');
+  html = html.replace(/<img id="lbimg" src="" alt="">/g, '<img id="lbimg" src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="项目图片预览">');
+
   html = html.replace(/<body([^>]*)>/i, `<body$1 data-project="${slug}" data-project-title="${titles[slug]}" data-next-href="${next[slug]}">`);
   html = html.replace(/<\/head>/i, '  <link rel="stylesheet" href="../../assets/global/project-shell.css">\n</head>');
   html = html.replace(/<\/body>/i, '  <script src="../../assets/js/project-shell.js" defer></script>\n</body>');
@@ -113,3 +116,5 @@ for (const [slug, source] of Object.entries(sources)) {
 }
 
 console.log('Imported projects:', Object.keys(sources).join(', '));
+
+
