@@ -20,6 +20,7 @@ const types = {
 
 http.createServer((req, res) => {
   const pathname = decodeURIComponent(new URL(req.url, 'http://localhost').pathname);
+  if (pathname === '/favicon.ico') { res.writeHead(204); res.end(); return; }
   const requested = pathname === '/' ? '/index.html' : pathname;
   let file = path.resolve(root, `.${requested}`);
   if (!file.startsWith(root)) {
@@ -36,3 +37,4 @@ http.createServer((req, res) => {
     res.end(data);
   });
 }).listen(4173, '127.0.0.1', () => console.log('http://127.0.0.1:4173'));
+
