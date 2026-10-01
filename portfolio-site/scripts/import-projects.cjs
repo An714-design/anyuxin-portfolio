@@ -30,11 +30,11 @@ const titles = {
 };
 
 const next = {
-  soundscape: '../renew/',
-  renew: '../lightmap/',
-  lightmap: '../lumen/',
-  lumen: '../flow/',
-  flow: '../soundscape/'
+  soundscape: '../renew/index.html',
+  renew: '../lightmap/index.html',
+  lightmap: '../lumen/index.html',
+  lumen: '../flow/index.html',
+  flow: '../soundscape/index.html'
 };
 
 const skippedDirs = new Set(['.git', '.pw-browsers', 'node_modules', 'src', 'lib', 'scripts', 'tests']);
@@ -116,5 +116,6 @@ for (const [slug, source] of Object.entries(sources)) {
 }
 
 console.log('Imported projects:', Object.keys(sources).join(', '));
+
 
 
