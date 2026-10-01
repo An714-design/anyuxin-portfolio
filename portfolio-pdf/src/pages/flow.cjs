@@ -61,7 +61,7 @@ module.exports = [
     body: `
       <div class="chapter-head"><div><p class="eyebrow">15-SECOND STORYBOARD</p><h2>15 秒精华版 · 唯一保留的动态演示。</h2></div><p>品牌 → 首页 → 专注 → 完成 → 复盘 → 睡前 → 品牌收尾。PDF 不嵌入视频，用四张关键帧保留节奏。</p></div>
       <div class="storyboard-grid">
-        ${[1, 2, 3, 4].map(index => `<figure>${image(`media/flow/flow-storyboard-0${index}.jpg`, `Flow 15 秒演示第 ${index} 帧`, 'media')}<span>Frame 0${index}</span></figure>`).join('')}
+        ${[1, 2, 3, 4].map(index => `<figure>${image(`media/shared/flow-storyboard-0${index}.jpg`, `Flow 15 秒演示第 ${index} 帧`, 'media')}<span>Frame 0${index}</span></figure>`).join('')}
       </div>
       <div class="qr-panel"><img src="media/shared/flow-qr.png" alt="Flow 网站演示二维码"><div><b>扫码查看 15 秒演示</b><p>网站只保留这一条动态内容，其他项目使用静态关键帧。</p></div></div>
       <div class="reflection-row"><p><b>取舍</b> 分心提醒允许结束，不用惩罚感强迫用户继续。</p><p><b>反思</b> 不同工作节奏下的个性化提醒和长期专注改善仍需真实使用验证。</p></div>
@@ -69,3 +69,4 @@ module.exports = [
     `
   })
 ];
+

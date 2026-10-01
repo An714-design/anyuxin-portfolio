@@ -3,13 +3,17 @@
   "private": true,
   "scripts": {
     "prepare": "C:/Users/anyuxin/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe scripts/prepare-images.py",
+    "shared": "C:/Users/anyuxin/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe scripts/generate-shared-assets.py && node scripts/capture-storyboard.cjs",
     "html": "node scripts/build-html.cjs",
     "pdf": "node scripts/build-pdf.cjs",
-    "build": "C:/Users/anyuxin/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe scripts/prepare-images.py && node scripts/build-html.cjs && node scripts/build-pdf.cjs && C:/Users/anyuxin/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe scripts/validate-pdf.py",
+    "build": "C:/Users/anyuxin/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe scripts/prepare-images.py && C:/Users/anyuxin/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe scripts/generate-shared-assets.py && node scripts/capture-storyboard.cjs && node scripts/build-html.cjs && node scripts/build-pdf.cjs && C:/Users/anyuxin/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe scripts/validate-pdf.py",
     "validate": "C:/Users/anyuxin/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe scripts/validate-pdf.py",
     "render": "C:/Users/anyuxin/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe scripts/render-pages.py",
     "test": "node --test"
   }
 }
+
+
+
 
 

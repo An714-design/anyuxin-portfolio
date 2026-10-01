@@ -1,0 +1,5 @@
+.vendor/
+dist/casebook.html
+dist/media/
+dist/media-manifest.json
+dist/qa/page-*.png

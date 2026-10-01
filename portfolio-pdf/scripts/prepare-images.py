@@ -50,3 +50,4 @@ for slug, source in sources.items():
 (root / "dist" / "media-manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
 total = sum((root / item["output"]).stat().st_size for item in manifest)
 print(json.dumps({"files": len(manifest), "bytes": total}, ensure_ascii=False))
+
