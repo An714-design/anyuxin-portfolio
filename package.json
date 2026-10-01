@@ -1,0 +1,12 @@
+{
+  "name": "anyuxin-uiux-product-portfolio",
+  "private": true,
+  "scripts": {
+    "serve": "node scripts/serve.cjs",
+    "import": "node scripts/import-projects.cjs",
+    "validate": "node scripts/validate-site.cjs",
+    "visual": "node scripts/visual-check.cjs",
+    "test": "node --test",
+    "check": "npm run test && npm run validate && npm run visual"
+  }
+}
