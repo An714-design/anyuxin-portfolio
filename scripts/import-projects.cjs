@@ -37,6 +37,14 @@ const next = {
   flow: '../soundscape/index.html'
 };
 
+const previous = {
+  soundscape: '../flow/index.html',
+  renew: '../soundscape/index.html',
+  lightmap: '../renew/index.html',
+  lumen: '../lightmap/index.html',
+  flow: '../lumen/index.html'
+};
+
 const skippedDirs = new Set(['.git', '.pw-browsers', 'node_modules', 'src', 'lib', 'scripts', 'tests']);
 
 function shouldCopy(sourceRoot, source) {
@@ -93,7 +101,7 @@ function patchIndex(slug, file) {
   html = html.replace(/<img id="lbi" src="" alt="">/g, '<img id="lbi" src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="项目图片预览">');
   html = html.replace(/<img id="lbimg" src="" alt="">/g, '<img id="lbimg" src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=" alt="项目图片预览">');
 
-  html = html.replace(/<body([^>]*)>/i, `<body$1 data-project="${slug}" data-project-title="${titles[slug]}" data-next-href="${next[slug]}">`);
+  html = html.replace(/<body([^>]*)>/i, `<body$1 data-project="${slug}" data-project-title="${titles[slug]}" data-prev-href="${previous[slug]}" data-next-href="${next[slug]}">`);
   html = html.replace(/<\/head>/i, '  <link rel="stylesheet" href="../../assets/global/project-shell.css">\n</head>');
   html = html.replace(/<\/body>/i, '  <script src="../../assets/js/project-shell.js" defer></script>\n</body>');
   fs.writeFileSync(file, html, 'utf8');
@@ -116,6 +124,7 @@ for (const [slug, source] of Object.entries(sources)) {
 }
 
 console.log('Imported projects:', Object.keys(sources).join(', '));
+
 
 
 
