@@ -17,3 +17,16 @@ test('navigation links use explicit index.html files for file mode', () => {
   }
 });
 
+
+test('project navigation is compact and consistent', () => {
+  const shellCss = fs.readFileSync('assets/global/project-shell.css', 'utf8');
+  assert.match(shellCss, /width:\s*30px/);
+  assert.match(shellCss, /height:\s*30px/);
+  assert.match(shellCss, /svg/);
+  for (const slug of ['soundscape', 'renew', 'lightmap', 'lumen', 'flow']) {
+    const html = fs.readFileSync(`projects/${slug}/index.html`, 'utf8');
+    assert.match(html, /data-prev-href="\.\.\/[^"]+\/index\.html"/);
+    assert.match(html, /data-next-href="\.\.\/[^"]+\/index\.html"/);
+  }
+});
+
