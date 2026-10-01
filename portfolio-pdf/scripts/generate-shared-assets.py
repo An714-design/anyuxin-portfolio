@@ -189,14 +189,15 @@ def save_qr(text, output):
                         pixels[px, py] = (0, 0, 0)
     image.save(output, "PNG", optimize=True)
 
-portfolio_url = "https://anyuxin-portfolio.pages.dev/"
-resume_url = "https://anyuxin-portfolio.pages.dev/resume/"
-flow_url = "https://anyuxin-portfolio.pages.dev/projects/flow/"
+portfolio_url = "https://an714-design.github.io/anyuxin-portfolio/"
+resume_url = "https://an714-design.github.io/anyuxin-portfolio/resume/index.html"
+flow_url = "https://an714-design.github.io/anyuxin-portfolio/projects/flow/index.html"
 save_qr(portfolio_url, shared / "portfolio-qr.png")
 save_qr(resume_url, shared / "resume-qr.png")
 save_qr(flow_url, shared / "flow-qr.png")
 
 print({"qr": [portfolio_url, resume_url, flow_url]})
+
 
 
 

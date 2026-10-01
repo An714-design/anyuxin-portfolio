@@ -72,7 +72,7 @@ The renderer also fails if a blank page is detected.
 The generated QR codes currently target the planned production origin:
 
 ```text
-https://anyuxin-portfolio.pages.dev/
+https://an714-design.github.io/anyuxin-portfolio/
 ```
 
 If the final domain changes, update the URLs in `scripts/generate-shared-assets.py`, rerun the shared asset generator, and rebuild the PDF.
@@ -86,3 +86,4 @@ portfolio-site/projects/flow/showcase/flow-demo-15s.mp4
 ```
 
 The PDF does not embed video.
+
