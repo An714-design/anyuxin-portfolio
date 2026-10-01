@@ -7,7 +7,8 @@
     "validate": "node scripts/validate-site.cjs",
     "visual": "node scripts/visual-check.cjs",
     "test": "node --test",
-    "check": "node --test && node scripts/validate-site.cjs && node scripts/visual-check.cjs"
+    "check": "node --test && node scripts/validate-site.cjs && node scripts/file-navigation-check.cjs && node scripts/visual-check.cjs"
   }
 }
+
 

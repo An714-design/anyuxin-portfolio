@@ -7,3 +7,13 @@ test('global tokens and shell files exist', () => {
   assert.equal(fs.existsSync('assets/css/shell.css'), true);
   assert.equal(fs.existsSync('assets/js/site-shell.js'), true);
 });
+
+test('navigation links use explicit index.html files for file mode', () => {
+  const shell = fs.readFileSync('assets/js/site-shell.js', 'utf8');
+  const home = fs.readFileSync('index.html', 'utf8');
+  assert.match(shell, /index\.html/);
+  for (const href of ['./work/index.html', './thinking/index.html', './aigc-process/index.html', './resume/index.html']) {
+    assert.equal(home.includes(href), true, `home missing ${href}`);
+  }
+});
+

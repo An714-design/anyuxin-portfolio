@@ -9,9 +9,9 @@
     ['resume', 'Resume'],
     ['contact', 'Contact']
   ];
-  const href = key => `${base}/${key === 'work' ? 'work/' : `${key}/`}`;
+  const href = key => `${base}/${key}/index.html`;
   document.querySelectorAll('[data-site-header]').forEach(node => {
-    node.innerHTML = `<header class="site-header"><div class="wrap site-nav"><a class="brand" href="${base}/">安雨鑫 / UI · UX · Product</a><nav class="nav-links" aria-label="主导航">${links.map(([key, label]) => `<a href="${href(key)}"${active === key ? ' aria-current="page"' : ''}>${label}</a>`).join('')}</nav></div></header>`;
+    node.innerHTML = `<header class="site-header"><div class="wrap site-nav"><a class="brand" href="${base}/index.html">安雨鑫 / UI · UX · Product</a><nav class="nav-links" aria-label="主导航">${links.map(([key, label]) => `<a href="${href(key)}"${active === key ? ' aria-current="page"' : ''}>${label}</a>`).join('')}</nav></div></header>`;
   });
   document.querySelectorAll('[data-site-footer]').forEach(node => {
     node.innerHTML = `<footer class="site-footer"><div class="wrap"><strong>Open to UI / UX / Product Designer roles.</strong><p><a href="mailto:18939807980@163.com">18939807980@163.com</a></p></div></footer>`;
