@@ -1,0 +1,40 @@
+{
+  "name": "安雨鑫",
+  "role": "UI / UX / Product Designer",
+  "specialty": "AIGC-oriented product and interface design",
+  "email": "18939807980@163.com",
+  "location": "上海",
+  "education": {
+    "school": "上海理工大学",
+    "major": "产品设计",
+    "gpa": "GPA 3.6",
+    "ranking": "专业排名前 10%",
+    "summary": "产品设计、用户研究与人因工程理论基础"
+  },
+  "experience": [
+    {
+      "company": "居然设计家 Homestyler",
+      "role": "3D 数字资产运营（AIGC 向）",
+      "summary": "搭建素材到上架的全流程 SOP，推进模型、参考图和 Banner 生产自动化，并以 Token 成本与准确率划定 AI 与人工边界。"
+    }
+  ],
+  "projectEvidence": [
+    "Badcase 博物馆：Prompt Diff、轮次收敛、根因筛选与统计",
+    "SCI 期刊论文可视化：示意图、数据图表与信息叙事",
+    "迪卡侬折叠自行车 CMF：趋势研究、用户问卷、双画像与材料方案"
+  ],
+  "capabilities": [
+    "用户研究",
+    "信息架构",
+    "产品逻辑",
+    "交互设计",
+    "UI 系统",
+    "动效原型",
+    "Prompt 设计",
+    "Agent 工作流",
+    "3D 设计",
+    "视觉排版"
+  ],
+  "certificates": ["CET-6", "CET-4"],
+  "availability": "Open to full-time and internship opportunities"
+}

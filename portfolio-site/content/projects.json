@@ -1,0 +1,62 @@
+[
+  {
+    "slug": "soundscape",
+    "title": "声场 Soundscape",
+    "thesis": "让空间音频成为看得见的界面语言。",
+    "role": "独立完成 UI/UX、视觉系统、用户旅程与高保真界面",
+    "duration": "6 周 · 3 轮迭代",
+    "domain": "空间音频 · 音乐体验",
+    "cover": "assets/covers/soundscape.png",
+    "capabilities": ["用户旅程", "信息架构", "视觉系统", "高保真 UI"],
+    "projectPath": "public/projects/soundscape/index.html",
+    "accent": "#7e74a2"
+  },
+  {
+    "slug": "renew",
+    "title": "续费侦探 Renew",
+    "thesis": "把分散的续费线索，转化为可确认、可行动的订阅决策。",
+    "role": "独立完成产品逻辑、UX 流程、视觉系统与 10 张核心界面",
+    "duration": "概念项目 · 端到端设计",
+    "domain": "订阅管理 · AI 决策辅助",
+    "cover": "assets/covers/renew.png",
+    "capabilities": ["产品逻辑", "信息架构", "AI 信任边界", "核心界面"],
+    "projectPath": "public/projects/renew/index.html",
+    "accent": "#c8f45a"
+  },
+  {
+    "slug": "lightmap",
+    "title": "拾光 LIGHTMAP",
+    "thesis": "用编号把侦察、拍摄、上传与复盘串成一段完整的城市光影游戏。",
+    "role": "独立完成世界观、游戏循环、UX 流程、UI 与设计系统",
+    "duration": "概念项目 · 完整设计系统",
+    "domain": "沉浸式游戏 · 光影侦察",
+    "cover": "assets/covers/lightmap.png",
+    "capabilities": ["游戏化", "跨屏串联", "设计系统", "战术 UI"],
+    "projectPath": "public/projects/lightmap/index.html",
+    "accent": "#e0a93e"
+  },
+  {
+    "slug": "lumen",
+    "title": "光合 Lumen",
+    "thesis": "睡眠陪伴不是让用户依赖产品，而是逐步获得对夜晚的控制感。",
+    "role": "独立完成用户研究、产品叙事、AI 边界、视觉系统与 12 张界面",
+    "duration": "概念项目 · AIGC 辅助视觉",
+    "domain": "睡眠陪伴 · 情绪设计",
+    "cover": "assets/covers/lumen.png",
+    "capabilities": ["用户研究", "情绪设计", "AI 边界", "夜行叙事"],
+    "projectPath": "public/projects/lumen/index.html",
+    "accent": "#d8a15e"
+  },
+  {
+    "slug": "flow",
+    "title": "Flow 流",
+    "thesis": "把专注、日程与睡前清空组织成一组可以完成的流。",
+    "role": "独立完成信息架构、Bento UI、10 张界面与 15 秒演示",
+    "duration": "概念项目 · UI 系统与动效",
+    "domain": "效率工具 · Calm 生产力",
+    "cover": "assets/covers/flow.png",
+    "capabilities": ["Bento 系统", "信息架构", "动效", "完整流程"],
+    "projectPath": "public/projects/flow/index.html",
+    "accent": "#8faf88"
+  }
+]
